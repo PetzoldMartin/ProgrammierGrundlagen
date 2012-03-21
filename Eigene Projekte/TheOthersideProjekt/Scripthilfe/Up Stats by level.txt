@@ -1,0 +1,15 @@
+* Instructions:
+#  To make equipment add a bonus based on it's level, add this to it's note box.
+#
+#   ATK_LV_BONUS: BONUS MAX
+#   DEF_LV_BONUS: BONUS MAX
+#   SPI_LV_BONUS: BONUS MAX
+#   AGI_LV_BONUS: BONUS MAX
+#
+#   BONUS = Bonus multiplier.
+#   MAX   = Max bonus. (Optional)
+#
+#   Example:
+#
+#   ATK_LV_BONUS: 5 30
+#   DEF_LV_BONUS: 2

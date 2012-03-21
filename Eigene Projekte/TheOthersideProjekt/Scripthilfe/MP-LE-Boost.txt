@@ -1,0 +1,9 @@
+MP le boost
+
+Instructions:
+#    Place Above Main and below other Custom scripts
+#
+#    Simply use this code in the note box of any Equipment:
+#    
+#      \maxhp[x] positive or negative
+#      \maxmp[y] positive or negative

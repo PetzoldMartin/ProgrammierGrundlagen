@@ -1,0 +1,41 @@
+Weapon mastery
+
+<weapon type: n>
+# This is the first part of the necessary tags used for the script. The n value
+# determines which weapon element to determine the mastery level of the weapon
+# being used.
+# 
+# <weapon skill lv n:m>
+# At weapon mastery level n, skill m appears. These are both integers. To add
+# more skills, add more of these tags within the same weapon notebox. Note that
+# this tag requires the <weapon type: n> tag to be present in the same notebox
+# in order for it to have any effect.
+# 
+# <trait: barehand>
+# This will make the weapon count as a barehanded weapon. However, it will not
+# use the skills taken from empty weapon, but instead, it'll use its own weapon
+# skill list so be sure to fill out the skill list accordingly.
+# 
+# -----------------------------------------------------------------------------
+# State Tags - Insert the following tags into State noteboxes.
+# -----------------------------------------------------------------------------
+# <weapon exp m%> or <weapon exp n:m%>
+# The first tag causes all weapon exp rates to change to m% rate. If m is 200,
+# then weapon exp is gained at 200%. If the second tag is used, only the weapon
+# type n will be affected. n is the ID of the weapon type element.
+# 
+# <weapon level +n> or <weapon level -n>
+# If this tag is used, weapon level is raised/lowered by n amount. This is not
+# a permanent change, but rather, a temporary change until the state wears off.
+# This tag affects all weapons. This effect is stackable.
+# 
+# <weapon level m: +n> or <weapon level m: -n>
+# Just like the above tag, this adjusts the weapon level temporarily. However,
+# it will only affect weapon element type m. This effect is stackable.
+# 
+# <trait: barehand>
+# If this state is inside of a state's tag, that actor will have the barehanded
+# trait given to it. Note that this will only affect actors and not enemies
+# because enemies cannot equip weapons and armours for obvious reasons. Also
+# note that the actor must also not have any weapon equipped with the barehand
+# elements.

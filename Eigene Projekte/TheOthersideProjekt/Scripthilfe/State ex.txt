@@ -1,0 +1,49 @@
+Instructions
+# -----------------------------------------------------------------------------
+# To install this script, open up your script editor and copy/paste this script
+# to an open slot below ? Materials but above ? Main. Remember to save.
+# 
+# -----------------------------------------------------------------------------
+# Status Tags - Insert the following tags into a State's notebox.
+# -----------------------------------------------------------------------------
+# <animation n>
+# This will cause the state to play animation n on the battler. One animation
+# can play at a time only so the highest priority state with an animation will
+# take effect. Settings can be adjusted below.
+# 
+# <max stack n>
+# This allows your state to stack n times. By default, this value is 1. When a
+# state is applied over again, the stack amount increases. If the stack amount
+# increases, the effects of that state will also be increased depending on the
+# effect and the power of the effect. Tags listed below will make mention of
+# which effects are stackable and which aren't.
+# 
+# <stat +n> <stat -n> <stat n%>
+# Replace stat with maxhp, maxmp, atk, def, spi, agi, hit, eva, cri, or odds
+# to increase, decrease, or set the base stat to a percentage. This version
+# will allow you to exceed to the 200% minimum if you use n%. If you plan on
+# using state stacking, it is recommended to use this tag instead of the innate
+# rate system for more accurate calculations. Stackable.
+# 
+# <hp degen n> <hp degen n%> or <mp degen n> <mp degen n%>
+# <hp regen n> <hp regen n%> or <mp regen n> <mp regen n%>
+# This causes HP or MP to regenerate or degenerate at the end of each turn. If
+# the tag is used without a %, the amount is set. Otherwise, the amount will be
+# relative to the battler's MaxHP or MP. Stackable.
+# 
+# <trait: phrase>
+# This tag allows you to add special traits to the inflicted battlers. The
+# phrase used will cause a different effect. Nonstackable.
+#   super guard      - Guarding reduces damage by 4x instead of 2x.
+#   pharmacology     - Items used will have double effect.
+#   fast attack      - Early turn initiative.
+#   dual attack      - Normal attacks hit twice.
+#   prevent critical - Criticals cannot occur on battler.
+#   half mp cost     - MP skills cost only half.
+#   double exp gain  - Inflicted actor gains double exp.
+#   auto hp recover  - Inflicted actor gains HP each turn and step.
+#   anti hp degen    - HP degen cannot occur on battler.
+#   anti hp regen    - HP regen cannot occur on battler.
+#   anti mp degen    - MP degen cannot occur on battler.
+#   anti mp regen    - MP regen cannot occur on battler.
+#   immortal         - Battler cannot die if HP reaches 0.

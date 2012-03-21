@@ -1,0 +1,124 @@
+Skill and Item Tags - Insert the following tags into Skill or Item noteboxes.
+# -----------------------------------------------------------------------------
+# <area radius: x>
+# For those who want their skills to have AoE effects but not target everything,
+# you can set the pixel radius with x and the skill will target units within
+# that marked area. Note that area of effect targetting does not apply to
+# Lunatic Mode to maintain custom control. You'll have to manually enter it in
+# if you wish for area of effect targetting. Selection typical is elliptical.
+# 
+# <area height: x%>
+# By default, x is 33% allowing for a small height radius when selecting your
+# targets. However, some skills can target higher than normal so use this to
+# adjust it accordingly. For ellipitical selection type.
+# 
+# <area image: phrase>
+# Those that want to change the area of effect image, change the phrase name to
+# the name of a file within your Graphics\Pictures folder. Leave out the file
+# name extension out of phrase. For ellipitical selection type.
+# 
+# <area blend: x>
+# If you want your area image to use a different blend type, change x to the
+# proper blend value. 0 for normal. 1 for additive. 2 for subtractive. For
+# ellipitical selection type.
+# 
+# <area column: x>
+# For those who want an entire column (vertical) of enemies to be selected,
+# use this tag. x will determine the amount of pixels both ways to offer
+# targets for selection. Note that area of effect targetting does not apply to
+# Lunatic Mode to maintain custom control. You'll have to manually enter it in
+# if you wish for area of effect targetting. Selection typical is rectangular.
+# 
+# <area row: x>
+# For those who want an entire row (horizontal) of enemies to be selected,
+# use this tag. x will determine the amount of pixels both ways to offer
+# targets for selection. Note that area of effect targetting does not apply to
+# Lunatic Mode to maintain custom control. You'll have to manually enter it in
+# if you wish for area of effect targetting. Selection typical is rectangular.
+# 
+# <area map>
+# This will select the entire map area for valid enemies. This is pretty much
+# the same thing as selecting all enemies or all allies, but offers a visual
+# representation of the selection area instead. Note that area of effect
+# targetting does not apply to Lunatic Mode to maintain custom control. You'll
+# have to manually enter it in if you wish for area of effect targetting.
+# Selection typical is rectangular.
+# 
+# <rect image: phrase>
+# Those that want to change the area of effect image, change the phrase name to
+# the name of a file within your Graphics\Pictures folder. Leave out the file
+# name extension out of phrase. For rectangular selection type.
+#
+# <rect blend: x>
+# If you want your rectangle image to use a different blend type, change x to
+# the proper blend value. 0 for normal. 1 for additive. 2 for subtractive. For
+# rectangular selection type.
+# 
+# <knock backward: +x> or <knock sideway: +x>
+# <knock backward: -x> or <knock sideway: -x>
+# This will allow your items and skills to push your enemies (and possibly
+# allies) around the screen. This can potentially throw enemies into range of
+# area of attack skills and items.
+# 
+# <knock random side>
+# If your skill can knock an enemy towards the side with the sideway tag, you
+# can have them go a different direction each hit using this tag. They will
+# swing either to the left or right without discrimination.
+# 
+# <targets: everybody>
+# This will target all existing enemies and allies without any discrimination.
+# Will not differentiate damage without aid of custom scripts.
+# 
+# <targets: target all foes>
+# Although it targets all foes, it will strike whichever foe was initially
+# selected first. Think of it like Final Fantasy 7's Blade Beam.
+# 
+# <targets: target random foe x>
+# This will target the selected foe, and then randomly select x enemy targets
+# to attack. This way, there's at least one guaranteed foe.
+# 
+# <targets: random foes x>
+# This will target x random foes, allowing for numbers over 3. However, this
+# tag will not activate if the value equals 0.
+# 
+# <targets: multi foe x>
+# This will target the same foe x times, allowing for more than 2 hits on the
+# foe with one skill or item. This tag will not activate if the value equals 0.
+# 
+# <targets: all but user>
+# This will target all allies except for the user. This means that the user will
+# not benefit from whatever skill or item being performed.
+# 
+# <targets: target all allies>
+# Just like "target all foes", this will target a single ally and then the rest
+# making that single ally to be affected first.
+# 
+# <targets: target random ally x>
+# This will target the selected ally, and then randomly select x ally targets
+# to affect. This way, there's at least one guaranteed ally.
+# 
+# <targets: random allies x>
+# This will target x random allies, allowing for numbers over 3. However, this
+# tag will not activate if the value equals 0.
+# 
+# <targets: multi ally x>
+# This will target the same ally x times, allowing for more than 2 pops on the
+# ally with one skill or item. This tag will not activate if the value equals 0.
+# 
+# <sort targets: true> or <sort targets: false>
+# For those with Battle Engine Zealous and don't want a skill to sort the
+# targets from left to right screen position, set the tag to true.
+# 
+# -----------------------------------------------------------------------------
+# Enemy Tags - Insert the following tags into Enemy noteboxes.
+# -----------------------------------------------------------------------------
+# <offset x: +n> or <offset y: +n>
+# <offset x: -n> or <offset y: -n>
+# For those that want to center their enemies properly with the area of effect
+# images and allow for the right selection calculations, use these tags to
+# adjust the x and y offsets of your enemies.
+# 
+# <unmovable>
+# Some enemies need to remain stationary and cannot move or be knocked around
+# like statues and whatnot. Place this tag inside of their notebox and they
+# will be immune to moving.

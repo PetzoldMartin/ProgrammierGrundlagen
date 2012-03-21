@@ -1,0 +1,20 @@
+Drop
+
+All configuration happens in the note boxes of enemies. If you wish to add
+#   a new drop, place this code in a note box for the enemy:
+#      \drop[type id, probability]
+#        type        : the type, either Item, Weapon, or Armor. Armour is also
+#                     accepted.
+#        id          : This is the ID of the item, weapon, or armor.
+#        probability : This is the probability the item, weapon, or armor will
+#                     drop. If you put a % sign after the number, then it will
+#                     drop that percentage of the time. If not, then the number
+#                     you put here will be the denominator, same as with 
+#                     regular drops. The number has to be an integer.
+#    EXAMPLES:
+#      \drop[Item 1, 65%]
+#          This will mean that the item with ID 1 (Potion by default) will drop
+#         65% of the time when you kill this enemy.
+#      \drop[armor 5, 8]
+#          This will mean that the armor with ID 5 (Mithril Shield by default)
+#         will drop 1/8 times you kill this enemy.
