@@ -1,0 +1,24 @@
+Reflect
+
+For events you can use these two commands in part of their name.
+#
+# Reflect 
+# 
+# Any event with "Reflect" as part of it's name will have the reflect effect on
+# the special areas of the map.
+#
+#
+# /OFFSET[#]
+#
+#  [#] = Numerical value of the offset.
+#
+#  Example:
+#   /OFFSET[10]
+#
+# Offset changes the Y offset of the sprite in the water.(How far is the 
+# Reflection from the characters original standing point)
+#
+#
+# $game_player.reflect_offset = # 
+#
+#  # = Value of the character offset.

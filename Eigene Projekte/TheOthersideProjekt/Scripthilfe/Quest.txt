@@ -1,0 +1,8 @@
+Quest
+$game_party.quests[x].complete_objective (y)  fertig
+$game_party.quests[x].reward_given = true     belohnung
+$game_party.quests[x].reveal_objective (y)    start
+$game_party.quests[x].fail_objective (y)      fail
+$game_party.quests[quest_id].conceal_objective (objective_id)   verbergen
+$game_party.quests[quest_id].uncomplete_objective (objective_id)....
+$game_party.quests[quest_id].unfail_objective (objective_id) .....unfail

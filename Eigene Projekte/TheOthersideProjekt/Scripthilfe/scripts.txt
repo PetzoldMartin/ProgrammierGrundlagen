@@ -1,0 +1,547 @@
+Quest
+$game_party.quests[x].complete_objective (y)  fertig
+$game_party.quests[x].reward_given = true     belohnung
+$game_party.quests[x].reveal_objective (y)    start
+$game_party.quests[x].fail_objective (y)      fail
+$game_party.quests[quest_id].conceal_objective (objective_id)   verbergen
+$game_party.quests[quest_id].uncomplete_objective (objective_id)....
+$game_party.quests[quest_id].unfail_objective (objective_id) .....unfail
+
+Light
+Light Modes:
+  
+ GROUND - Medium steady white light.
+ GROUND2 - Medium white light with slight flicker.
+ GROUND3 - Small steady red light.
+ GROUND4 - Medium steady green light.
+ GROUND5 - Medium steady blu light.
+ FIRE - Large red light with a slight flicker.
+ LIGHT - Small steady white light.
+ LIGHT2 - X-Large steady white light.
+ LIGHT3 - Small white light with slight flicker.
+ TORCH - X-Large red light with a heavy flicker.
+ TORCH2 - X-Large red light with a sleight flicker.
+ TORCH3 - Large white light with a slight flicker.
+
+ Day/Night
+ 
+ Terminology: Phase refers to the current state of the day, such as "Noon".
+#_/                         ? Instructions For Usage ?
+#_/  
+#_/                           ? Stop Day-to-Night ?
+#_/  When [DN_STOP] is inserted into a Map's name (after its given name), the
+#_/  Day-to-Night change stops, the timer does not stop however, and if a phase
+#_/  is currently active, such as "Night", the tint remains on the map.
+#_/  
+#_/                 ? Stop Day-to-Night and Time, Cancel Phase ?
+#_/  
+#_/  When [DN_VOID] is inserted into a Map's name (after its given name), the
+#_/  Day-to-Night change stops, the timer is effectively frozen, and if a phase
+#_/  is currently active, such as "Night", the tint is reverted back to normal.
+#_/  
+#_/                       ? Phase-Specific Encounters ?
+#_/  
+#_/  When [DN Phase#](Where Phase# refers to the phase. 0 = Noon, 1 = Evening,
+#_/   2 = Night, 3 = Morning) is inserted into a specified Troop's "Notes" box 
+#_/   in the Troops tab of the database, the specified Troop will only appear
+#_/   under those conditions.
+#_/  
+#_/                         ? Event Script Functions ?
+#_/  The following commands are available using the "Script" item in events.
+#_/  
+#_/  * stop_daynight
+#_/     Day to Night change is stopped.
+#_/  
+#_/  * start_daynight
+#_/     Day to Night change is started.
+#_/  
+#_/  * get_daynight_name 
+#_/     Name of present phase is acquired. This function only works in other
+#_/      scripts.
+#_/  
+#_/  * get_daynight_week (variable_id)
+#_/     Appoints the day of the week to the given variable.
+#_/  
+#_/  * get_daynight_week_name
+#_/     Name of the present day is aquired. This function only works in other
+#_/      scripts.
+#_/  
+#_/  * change_daynight_phase(phase, duration, pass_days)
+#_/     Changes the current phase to a new one. Handy for Inns and the like.
+#_/     Example: change_daynight_phase (3, 1, 1)
+#_/       This would make one day pass, change the phase to morning, with a
+#_/       duration of one frame. Duration must be set to a minimum of 1.
+#_/  
+#_/   * transit_daynight_phase(duration)
+#_/      Forces the phase to change at the very moment you call this.
+#_/       This appears to be bugged. No matter how I've called it, I get errors.
+#_/  
+#_/   * set_daynight_default(duration)
+#_/      Forces the tint of the current phase to reset to the initial phase.
+#_/  
+#_/   * restore_daynight_phase(duration)
+#_/      Forces the tint of the current phase to reset to its normal tint.
+
+Reflect
+
+For events you can use these two commands in part of their name.
+#
+# Reflect 
+# 
+# Any event with "Reflect" as part of it's name will have the reflect effect on
+# the special areas of the map.
+#
+#
+# /OFFSET[#]
+#
+#  [#] = Numerical value of the offset.
+#
+#  Example:
+#   /OFFSET[10]
+#
+# Offset changes the Y offset of the sprite in the water.(How far is the 
+# Reflection from the characters original standing point)
+#
+#
+# $game_player.reflect_offset = # 
+#
+#  # = Value of the character offset.
+
+Drop
+
+All configuration happens in the note boxes of enemies. If you wish to add
+#   a new drop, place this code in a note box for the enemy:
+#      \drop[type id, probability]
+#        type        : the type, either Item, Weapon, or Armor. Armour is also
+#                     accepted.
+#        id          : This is the ID of the item, weapon, or armor.
+#        probability : This is the probability the item, weapon, or armor will
+#                     drop. If you put a % sign after the number, then it will
+#                     drop that percentage of the time. If not, then the number
+#                     you put here will be the denominator, same as with 
+#                     regular drops. The number has to be an integer.
+#    EXAMPLES:
+#      \drop[Item 1, 65%]
+#          This will mean that the item with ID 1 (Potion by default) will drop
+#         65% of the time when you kill this enemy.
+#      \drop[armor 5, 8]
+#          This will mean that the armor with ID 5 (Mithril Shield by default)
+#         will drop 1/8 times you kill this enemy.
+
+MP le boost
+
+Instructions:
+#    Place Above Main and below other Custom scripts
+#
+#    Simply use this code in the note box of any Equipment:
+#    
+#      \maxhp[x] positive or negative
+#      \maxmp[y] positive or negative
+
+
+
+UP STats by Level
+
+* Instructions:
+#  To make equipment add a bonus based on it's level, add this to it's note box.
+#
+#   ATK_LV_BONUS: BONUS MAX
+#   DEF_LV_BONUS: BONUS MAX
+#   SPI_LV_BONUS: BONUS MAX
+#   AGI_LV_BONUS: BONUS MAX
+#
+#   BONUS = Bonus multiplier.
+#   MAX   = Max bonus. (Optional)
+#
+#   Example:
+#
+#   ATK_LV_BONUS: 5 30
+#   DEF_LV_BONUS: 2
+
+Weapon mastery
+
+<weapon type: n>
+# This is the first part of the necessary tags used for the script. The n value
+# determines which weapon element to determine the mastery level of the weapon
+# being used.
+# 
+# <weapon skill lv n:m>
+# At weapon mastery level n, skill m appears. These are both integers. To add
+# more skills, add more of these tags within the same weapon notebox. Note that
+# this tag requires the <weapon type: n> tag to be present in the same notebox
+# in order for it to have any effect.
+# 
+# <trait: barehand>
+# This will make the weapon count as a barehanded weapon. However, it will not
+# use the skills taken from empty weapon, but instead, it'll use its own weapon
+# skill list so be sure to fill out the skill list accordingly.
+# 
+# -----------------------------------------------------------------------------
+# State Tags - Insert the following tags into State noteboxes.
+# -----------------------------------------------------------------------------
+# <weapon exp m%> or <weapon exp n:m%>
+# The first tag causes all weapon exp rates to change to m% rate. If m is 200,
+# then weapon exp is gained at 200%. If the second tag is used, only the weapon
+# type n will be affected. n is the ID of the weapon type element.
+# 
+# <weapon level +n> or <weapon level -n>
+# If this tag is used, weapon level is raised/lowered by n amount. This is not
+# a permanent change, but rather, a temporary change until the state wears off.
+# This tag affects all weapons. This effect is stackable.
+# 
+# <weapon level m: +n> or <weapon level m: -n>
+# Just like the above tag, this adjusts the weapon level temporarily. However,
+# it will only affect weapon element type m. This effect is stackable.
+# 
+# <trait: barehand>
+# If this state is inside of a state's tag, that actor will have the barehanded
+# trait given to it. Note that this will only affect actors and not enemies
+# because enemies cannot equip weapons and armours for obvious reasons. Also
+# note that the actor must also not have any weapon equipped with the barehand
+# elements.
+
+
+exstendet skills
+-----------------------------------------------------------------------------
+# Skill Tags - Insert the following tags into Skill noteboxes.
+# -----------------------------------------------------------------------------
+# <skill type: phrase>
+# Replace phrase with anything you want. This is used mostly for other tags.
+# Inserting multiple of these tags will give it multiple types. By default,
+# every skill will be affected by anything with the "ALL" category type.
+# 
+# <cast animation x> or <actor cast x> or <enemy cast x>
+# This will give the skill a casting animation upon usage. If the first tag is
+# used, the casting animation will be universal for both actors and enemies.
+# If the actor/enemy tag is used rather than the first, they will have separate
+# casting animations.
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# <cost mp x> <cost mp x%>
+# This will allow you to change the MP cost of a skill to x. With this tag, it
+# is possible to exceed MP cost of 9999 which was not previously doable in the
+# editor. If added a % after the cost, the cost will be a direct x% of MaxMP.
+# 
+# <cost hp x> <cost hp x%>
+# To make skills cost HP instead of MP, insert this tag into the notebox. Just
+# like the above tag, if used n%, it will cost a percent of the MaxHP instead.
+# 
+# <cost gold x> <cost gold x%>
+# This will cause skills to cost Gold instead of MP. However, with the x% tag,
+# it will cost a percentage of the party's total gold. If the party's total
+# gold is 0, the skill becomes unusuable.
+# 
+# <cost icon x>
+# This can be used to change the skill's cost icon if you so happen to desire
+# changing it into something else while keeping the basic skill cost effect.
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# <cost rage x>
+# Rage is a new stat added with this script to function as a new skill currency
+# for RPG's. Whenever battlers attack, use skills, or take damage, their rage
+# goes up and allows them to use skills with a rage cost.
+# 
+# <rage boost +x> 
+# When using a skill with this tag, the user will gain +n rage independent of
+# the base rage gain bonus for certain skill types. Use a negative value to
+# reduce rage after using.
+# 
+# <target rage +x> <target rage -x>
+# This will cause the target to gain or lose n rage depending on the + or -
+# tag used with the skill. Given rage has no influence by default settings.
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# <cooldown x>
+# This will determine how many turns the battler must wait before the skill can
+# be usable again after performing. Meanwhile, the skill is wholely disabled.
+# 
+# <limit use x>
+# This will determine how many times a skill can be used per battle. Once a
+# skill is used x times in battle, it becomes disabled for the remainder.
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# <instant cast>
+# This causes the skill used to perform instantly without wasting the actor's
+# turn. Immediately upon use, it will go back to the actor's command selection.
+# If an enemy uses an instant skill, the enemy will get another turn.
+# 
+# <unreflectable>
+# Skills with this tag cannot be reflected by reflectable states regardless of
+# what kind of skill type the skill is.
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# <state require any: x> or <state require any: x,x>
+# <state require all: x> or <state require all: x,x>
+# This will require state x to be on the battler before the skill can be used.
+# If the any keyword is used, only one of the states need to be present. If the
+# all keyword is used, all of them must be present.
+# 
+# <element require any: x> or <element require any: x,x>
+# <element require all: x> or <element require all: x,x>
+# This will require the actor to have element x in the attack element set in
+# order for the skill to be used. Best used for weapon skills that require a
+# weapon element to use that said skill. Like the above, if the any keyword is
+# used, only one of the elements need to be present. If all, then all need to
+# be present for the skill to be used.
+# 
+# <switch require any: x> or <switch require any: x,x>
+# <switch require all: x> or <switch require all: x,x>
+# This will require the switch x to be true before the skill can be used. Great
+# for disabling certain skills at certain points in the game for any reason.
+# Like the above, if the any keyword is used, any of the switches could be on.
+# If all keyword is used, all of the switches need to be on to use the skill.
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# <subskills: x,x>
+# This will turn the skill in the skill menu into a subskill menu displaying
+# all of the x,x skills listed inside of the tag. The subskills inside will
+# only appear if the actor has learned the listed subskills. Subskill skills
+# also cannot appear within the subskill window. Enemies can't use subskills
+# for obvious reasons.
+# 
+# <subskill only>
+# This will prevent the skill from appearing in the regular skill window, but
+# it will appear in the subskill window instead.
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# <open chain x>
+# This causes the chain window to appear and display all of the chainable
+# skills available to the player. x is the maximum number of skills the player
+# can chain. Open chains contain all of the player's skills that may be chained.
+# 
+# <closed chain x: phrase>
+# Closed chains will also open up the chain window. Just like before, x is the
+# maximum number of times the player can chain. However, closed chains will
+# only allow the player to select skills of the phrase type. Place this tag
+# inside of the skills you wish to display: <skill type: phrase> Insert multiple
+# of these <closed chain x: phrase> tags to allow more skill types.
+# 
+# <forced chain x: y,y>
+# Forced chains are very picky and only allow certain skills to be chained. The
+# x value determines how many times the skill can be chained. The y values are
+# the skill ID's that may be chained. Note that if the y skills aren't learned,
+# they cannot be chained unless they have the <not require learn> tag.
+# 
+# <chain repeat>
+# This allows a chain skill to reselect skills allowing repeats in the list.
+# Otherwise, chain skills will have this trait off by default.
+# 
+# <cannot chain>
+# This goes into the noteboxes of skills that you do not wish to appear inside
+# of a chain menu at all. Used mostly for open and closed chains that pretty
+# much select many skills indiscriminantly.
+# - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+# <not require learn>
+# This allows the character to use this subskill even if the player has not
+# yet learned it. Place this tag within any subskill notebox so that it can be
+# used whenever desired. This tag also affects forced chains.
+# 
+# -----------------------------------------------------------------------------
+# State Tags - Insert the following tags into State noteboxes.
+# -----------------------------------------------------------------------------
+# <cost effect phrase +x>
+# <cost effect phrase -x>
+# <cost effect phrase x%>
+# Replace phrase with "HP", "MP", "GOLD", or "RAGE" for the tag to work. If the
+# +x or -x value is used at the end, the skill cost will be directly affected
+# by that much. If it is x%, the skill cost will be inflated/deflated to x%.
+# 
+# <cannot use phrase skills>
+# Replace phrase with "HP", "MP", "GOLD", or "RAGE" for the tag to work. If the
+# state is on a battler, that battler cannot use skills with the cost. Also, if
+# the state contains a phrase that matches one of the skill's types, the skill
+# also cannot be used so long as the status effect is present.
+# 
+# <rage rate x%>
+# This will set the rage gain rate to x%. If x is 20, then only 20% of the rage
+# will be gained. If it is 300, then rage gain rate is 300%.
+# 
+# <cooldown rate +x> <cooldown rate -x> <cooldown rate x%>
+# This tag adjusts the initial cooldown value when using a skill. If the value
+# is 50%, then a skill with an originally 20 turn cooldown will only yield a 10
+# turn cooldown instead. The + and - values will adjust the values accordingly.
+# 
+# <reflect type: phrase>
+# This will give the status effect reflect properties and bounce back skills of
+# the matching phrase skill type. If the state's phrase is "magic" and the used
+# skill has a "magic" skill type, then the skill will bounce back at the caster
+# for the full effect. Skills with the <unreflectable> tag cannot be reflected.
+# 
+# -----------------------------------------------------------------------------
+# Debug Shortcuts - Only during $TEST and $BTEST mode
+# -----------------------------------------------------------------------------
+# During testplay mode, pressing F5 inside of the skill menu outside of battle
+# will recover all of the actor's MP when the subclass menu is opened.
+# 
+
+state ext
+
+Instructions
+# -----------------------------------------------------------------------------
+# To install this script, open up your script editor and copy/paste this script
+# to an open slot below ? Materials but above ? Main. Remember to save.
+# 
+# -----------------------------------------------------------------------------
+# Status Tags - Insert the following tags into a State's notebox.
+# -----------------------------------------------------------------------------
+# <animation n>
+# This will cause the state to play animation n on the battler. One animation
+# can play at a time only so the highest priority state with an animation will
+# take effect. Settings can be adjusted below.
+# 
+# <max stack n>
+# This allows your state to stack n times. By default, this value is 1. When a
+# state is applied over again, the stack amount increases. If the stack amount
+# increases, the effects of that state will also be increased depending on the
+# effect and the power of the effect. Tags listed below will make mention of
+# which effects are stackable and which aren't.
+# 
+# <stat +n> <stat -n> <stat n%>
+# Replace stat with maxhp, maxmp, atk, def, spi, agi, hit, eva, cri, or odds
+# to increase, decrease, or set the base stat to a percentage. This version
+# will allow you to exceed to the 200% minimum if you use n%. If you plan on
+# using state stacking, it is recommended to use this tag instead of the innate
+# rate system for more accurate calculations. Stackable.
+# 
+# <hp degen n> <hp degen n%> or <mp degen n> <mp degen n%>
+# <hp regen n> <hp regen n%> or <mp regen n> <mp regen n%>
+# This causes HP or MP to regenerate or degenerate at the end of each turn. If
+# the tag is used without a %, the amount is set. Otherwise, the amount will be
+# relative to the battler's MaxHP or MP. Stackable.
+# 
+# <trait: phrase>
+# This tag allows you to add special traits to the inflicted battlers. The
+# phrase used will cause a different effect. Nonstackable.
+#   super guard      - Guarding reduces damage by 4x instead of 2x.
+#   pharmacology     - Items used will have double effect.
+#   fast attack      - Early turn initiative.
+#   dual attack      - Normal attacks hit twice.
+#   prevent critical - Criticals cannot occur on battler.
+#   half mp cost     - MP skills cost only half.
+#   double exp gain  - Inflicted actor gains double exp.
+#   auto hp recover  - Inflicted actor gains HP each turn and step.
+#   anti hp degen    - HP degen cannot occur on battler.
+#   anti hp regen    - HP regen cannot occur on battler.
+#   anti mp degen    - MP degen cannot occur on battler.
+#   anti mp regen    - MP regen cannot occur on battler.
+#   immortal         - Battler cannot die if HP reaches 0.
+
+target options
+
+Skill and Item Tags - Insert the following tags into Skill or Item noteboxes.
+# -----------------------------------------------------------------------------
+# <area radius: x>
+# For those who want their skills to have AoE effects but not target everything,
+# you can set the pixel radius with x and the skill will target units within
+# that marked area. Note that area of effect targetting does not apply to
+# Lunatic Mode to maintain custom control. You'll have to manually enter it in
+# if you wish for area of effect targetting. Selection typical is elliptical.
+# 
+# <area height: x%>
+# By default, x is 33% allowing for a small height radius when selecting your
+# targets. However, some skills can target higher than normal so use this to
+# adjust it accordingly. For ellipitical selection type.
+# 
+# <area image: phrase>
+# Those that want to change the area of effect image, change the phrase name to
+# the name of a file within your Graphics\Pictures folder. Leave out the file
+# name extension out of phrase. For ellipitical selection type.
+# 
+# <area blend: x>
+# If you want your area image to use a different blend type, change x to the
+# proper blend value. 0 for normal. 1 for additive. 2 for subtractive. For
+# ellipitical selection type.
+# 
+# <area column: x>
+# For those who want an entire column (vertical) of enemies to be selected,
+# use this tag. x will determine the amount of pixels both ways to offer
+# targets for selection. Note that area of effect targetting does not apply to
+# Lunatic Mode to maintain custom control. You'll have to manually enter it in
+# if you wish for area of effect targetting. Selection typical is rectangular.
+# 
+# <area row: x>
+# For those who want an entire row (horizontal) of enemies to be selected,
+# use this tag. x will determine the amount of pixels both ways to offer
+# targets for selection. Note that area of effect targetting does not apply to
+# Lunatic Mode to maintain custom control. You'll have to manually enter it in
+# if you wish for area of effect targetting. Selection typical is rectangular.
+# 
+# <area map>
+# This will select the entire map area for valid enemies. This is pretty much
+# the same thing as selecting all enemies or all allies, but offers a visual
+# representation of the selection area instead. Note that area of effect
+# targetting does not apply to Lunatic Mode to maintain custom control. You'll
+# have to manually enter it in if you wish for area of effect targetting.
+# Selection typical is rectangular.
+# 
+# <rect image: phrase>
+# Those that want to change the area of effect image, change the phrase name to
+# the name of a file within your Graphics\Pictures folder. Leave out the file
+# name extension out of phrase. For rectangular selection type.
+#
+# <rect blend: x>
+# If you want your rectangle image to use a different blend type, change x to
+# the proper blend value. 0 for normal. 1 for additive. 2 for subtractive. For
+# rectangular selection type.
+# 
+# <knock backward: +x> or <knock sideway: +x>
+# <knock backward: -x> or <knock sideway: -x>
+# This will allow your items and skills to push your enemies (and possibly
+# allies) around the screen. This can potentially throw enemies into range of
+# area of attack skills and items.
+# 
+# <knock random side>
+# If your skill can knock an enemy towards the side with the sideway tag, you
+# can have them go a different direction each hit using this tag. They will
+# swing either to the left or right without discrimination.
+# 
+# <targets: everybody>
+# This will target all existing enemies and allies without any discrimination.
+# Will not differentiate damage without aid of custom scripts.
+# 
+# <targets: target all foes>
+# Although it targets all foes, it will strike whichever foe was initially
+# selected first. Think of it like Final Fantasy 7's Blade Beam.
+# 
+# <targets: target random foe x>
+# This will target the selected foe, and then randomly select x enemy targets
+# to attack. This way, there's at least one guaranteed foe.
+# 
+# <targets: random foes x>
+# This will target x random foes, allowing for numbers over 3. However, this
+# tag will not activate if the value equals 0.
+# 
+# <targets: multi foe x>
+# This will target the same foe x times, allowing for more than 2 hits on the
+# foe with one skill or item. This tag will not activate if the value equals 0.
+# 
+# <targets: all but user>
+# This will target all allies except for the user. This means that the user will
+# not benefit from whatever skill or item being performed.
+# 
+# <targets: target all allies>
+# Just like "target all foes", this will target a single ally and then the rest
+# making that single ally to be affected first.
+# 
+# <targets: target random ally x>
+# This will target the selected ally, and then randomly select x ally targets
+# to affect. This way, there's at least one guaranteed ally.
+# 
+# <targets: random allies x>
+# This will target x random allies, allowing for numbers over 3. However, this
+# tag will not activate if the value equals 0.
+# 
+# <targets: multi ally x>
+# This will target the same ally x times, allowing for more than 2 pops on the
+# ally with one skill or item. This tag will not activate if the value equals 0.
+# 
+# <sort targets: true> or <sort targets: false>
+# For those with Battle Engine Zealous and don't want a skill to sort the
+# targets from left to right screen position, set the tag to true.
+# 
+# -----------------------------------------------------------------------------
+# Enemy Tags - Insert the following tags into Enemy noteboxes.
+# -----------------------------------------------------------------------------
+# <offset x: +n> or <offset y: +n>
+# <offset x: -n> or <offset y: -n>
+# For those that want to center their enemies properly with the area of effect
+# images and allow for the right selection calculations, use these tags to
+# adjust the x and y offsets of your enemies.
+# 
+# <unmovable>
+# Some enemies need to remain stationary and cannot move or be knocked around
+# like statues and whatnot. Place this tag inside of their notebox and they
+# will be immune to moving.

@@ -1,0 +1,58 @@
+Day/Night
+ 
+ Terminology: Phase refers to the current state of the day, such as "Noon".
+#_/                         ? Instructions For Usage ?
+#_/  
+#_/                           ? Stop Day-to-Night ?
+#_/  When [DN_STOP] is inserted into a Map's name (after its given name), the
+#_/  Day-to-Night change stops, the timer does not stop however, and if a phase
+#_/  is currently active, such as "Night", the tint remains on the map.
+#_/  
+#_/                 ? Stop Day-to-Night and Time, Cancel Phase ?
+#_/  
+#_/  When [DN_VOID] is inserted into a Map's name (after its given name), the
+#_/  Day-to-Night change stops, the timer is effectively frozen, and if a phase
+#_/  is currently active, such as "Night", the tint is reverted back to normal.
+#_/  
+#_/                       ? Phase-Specific Encounters ?
+#_/  
+#_/  When [DN Phase#](Where Phase# refers to the phase. 0 = Noon, 1 = Evening,
+#_/   2 = Night, 3 = Morning) is inserted into a specified Troop's "Notes" box 
+#_/   in the Troops tab of the database, the specified Troop will only appear
+#_/   under those conditions.
+#_/  
+#_/                         ? Event Script Functions ?
+#_/  The following commands are available using the "Script" item in events.
+#_/  
+#_/  * stop_daynight
+#_/     Day to Night change is stopped.
+#_/  
+#_/  * start_daynight
+#_/     Day to Night change is started.
+#_/  
+#_/  * get_daynight_name 
+#_/     Name of present phase is acquired. This function only works in other
+#_/      scripts.
+#_/  
+#_/  * get_daynight_week (variable_id)
+#_/     Appoints the day of the week to the given variable.
+#_/  
+#_/  * get_daynight_week_name
+#_/     Name of the present day is aquired. This function only works in other
+#_/      scripts.
+#_/  
+#_/  * change_daynight_phase(phase, duration, pass_days)
+#_/     Changes the current phase to a new one. Handy for Inns and the like.
+#_/     Example: change_daynight_phase (3, 1, 1)
+#_/       This would make one day pass, change the phase to morning, with a
+#_/       duration of one frame. Duration must be set to a minimum of 1.
+#_/  
+#_/   * transit_daynight_phase(duration)
+#_/      Forces the phase to change at the very moment you call this.
+#_/       This appears to be bugged. No matter how I've called it, I get errors.
+#_/  
+#_/   * set_daynight_default(duration)
+#_/      Forces the tint of the current phase to reset to the initial phase.
+#_/  
+#_/   * restore_daynight_phase(duration)
+#_/      Forces the tint of the current phase to reset to its normal tint.

@@ -1,0 +1,14 @@
+Light Modes:
+  
+ GROUND - Medium steady white light.
+ GROUND2 - Medium white light with slight flicker.
+ GROUND3 - Small steady red light.
+ GROUND4 - Medium steady green light.
+ GROUND5 - Medium steady blu light.
+ FIRE - Large red light with a slight flicker.
+ LIGHT - Small steady white light.
+ LIGHT2 - X-Large steady white light.
+ LIGHT3 - Small white light with slight flicker.
+ TORCH - X-Large red light with a heavy flicker.
+ TORCH2 - X-Large red light with a sleight flicker.
+ TORCH3 - Large white light with a slight flicker.
