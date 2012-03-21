@@ -15,7 +15,7 @@ public class Figure extends Drawable
     private static ArrayList<Drawable> shapes = new ArrayList<Drawable>();
     public Figure()
     {
-    	draw();
+    	
     }
     /**
      * Füge weiteres Shape zur Figur hinzu
