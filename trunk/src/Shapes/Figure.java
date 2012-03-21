@@ -15,7 +15,7 @@ public class Figure extends Drawable
     private static ArrayList<Drawable> shapes = new ArrayList<Drawable>();
     public Figure()
     {
-        
+    	draw();
     }
     /**
      * Füge weiteres Shape zur Figur hinzu
@@ -223,7 +223,6 @@ public class Figure extends Drawable
        besenSO2.setColor(Color.ORANGE.darker().darker().darker().darker());
        snowMan.addShape(besenSO2);
        
-      
        return snowMan;
     }
    
