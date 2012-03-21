@@ -1,0 +1,5 @@
+#BlueJ class context
+comment0.params=start\ end
+comment0.target=Line(Point,\ Point)
+comment0.text=\r\n\ Konstruktor\ fuer\ Objekte\ der\ Klasse\ Line\r\n\ @param\ start\ -\ Startpunkt\r\n\ @param\ end\ -\ Endpunkt\r\n
+numComments=1

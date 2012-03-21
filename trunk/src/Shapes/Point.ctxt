@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=x\ y
+comment0.target=Point(int,\ int)
+comment0.text=\r\n\ Konstruktor\ f\u00FCr\ Objekt\ der\ Klasse\ Point\r\n\ @param\ x\ -\ x-Koordinate\r\n\ @param\ y\ -\ y-Koordinate\r\n
+comment1.params=
+comment1.target=int\ getX()
+comment1.text=\r\n\ Zugriff\ auf\ x\r\n\ @return\ aktuellen\ Wert\ fuer\ x\r\n
+comment2.params=
+comment2.target=int\ getY()
+comment2.text=\r\n\ Zugriff\ auf\ y\r\n\ @return\ aktuellen\ Wert\ fuer\ y\r\n
+comment3.params=dx\ dy
+comment3.target=Point\ move(int,\ int)
+comment3.text=\r\n\ bewege\ den\ Punkt\ um\ dx,\ dy\r\n\ @param\ dx\ -\ Distanz\ in\ x\r\n\ @param\ dy\ -\ Distanz\ in\ y\r\n\ @return\ den\ Punkt\r\n
+numComments=4
