@@ -1,0 +1,85 @@
+package TI2;
+
+import java.math.*;
+import java.util.ArrayList;
+import java.util.HashMap;
+
+public class Zahlenwürfelung {
+
+	public BigInteger stellen = new BigInteger("4");
+	public int wert0 = 0;
+	public int wert1 = 1;
+	public int wert2 = 2;
+
+	public Zahlenwürfelung() {
+
+	}
+
+	// s = s.substring(0, s.length() - 1)
+	// string.substring(from, to)
+	public ArrayList<String> numberLines() {
+		String numberLines = ("0");
+		String numberLinesZeroStart = ("0");
+		int reward = 0;
+		ArrayList<String> Numberholder = new ArrayList<String>();
+		for (int i = 0; i < stellen.pow(3).intValue(); i++) {
+			// System.out.println(i);
+			System.out.println(Long.toString(i, 3)); // Binär
+			numberLines = Long.toString(i, 3);
+			// System.out.println(Long.valueOf(numberLines,3)+"\n"); //Trinär
+			if (Palindrom2(numberLines,reward+1)) {
+				reward = reward + 1;
+				if(reward!=1)
+				{
+				numberLinesZeroStart = ZeroCreator(reward-1) + 0;
+				System.out.println(numberLinesZeroStart);
+				numberLinesZeroStart = ("");
+				numberLinesZeroStart = ZeroCreator(reward-1) + 1;
+				System.out.println(numberLinesZeroStart);
+				numberLinesZeroStart = ("");
+				numberLinesZeroStart = ZeroCreator(reward-1) + 2;
+				System.out.println(numberLinesZeroStart);
+				numberLinesZeroStart = ("");
+				}
+			}
+
+		}
+		return Numberholder;
+	}
+
+	private String ZeroCreator(int i) {
+		String ZeroLine = ("");
+		for (int i2 = 0; i2 < i; i2++) {
+			ZeroLine = "0" + ZeroLine;
+		}
+		return ZeroLine;
+	}
+
+	public boolean Palindrom2(String ce,int ec) {
+
+		boolean p2 = false;
+		
+		for (int i = 0; i < ec; i++) 
+		{
+			if (ce.startsWith("2")) 
+			{
+				ce = ce.substring(1);
+			}
+				
+				if (ce.length()==0)
+				{
+					p2= true;
+				}
+			
+			else {
+			
+
+				p2= false;
+			}
+
+		
+		}
+		return p2;
+		
+	}
+}
