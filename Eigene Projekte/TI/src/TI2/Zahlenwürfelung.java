@@ -2,17 +2,19 @@ package TI2;
 
 import java.math.*;
 import java.util.ArrayList;
-import java.util.HashMap;
 
 public class Zahlenwürfelung {
 
-	public BigInteger stellen = new BigInteger("4");
+	public BigInteger stellen = new BigInteger("16");
+	public BigInteger Anfang = new BigInteger("0");
 	public BigInteger drei = new BigInteger("3");
 	public int wert0 = 0;
 	public int wert1 = 1;
 	public int wert2 = 2;
 
 	public Zahlenwürfelung() {
+		
+		
 
 	}
 
@@ -27,18 +29,22 @@ public class Zahlenwürfelung {
 			// System.out.println(i);
 //			System.out.println(Long.toString(i, 3)); // Binär
 			numberLines = Long.toString(i, 3);
+			Numberholder.add(numberLines);
 			// System.out.println(Long.valueOf(numberLines,3)+"\n"); //Trinär
 			if (numberLines.startsWith("2")&Palindrom2(numberLines,reward+1)) {
 				reward = reward + 1;
 				if(reward!=1)
 				{
 				numberLinesZeroStart = ZeroCreator(reward-1) + 0;
+				Numberholder.add(numberLinesZeroStart);
 //				System.out.println(numberLinesZeroStart);
 				numberLinesZeroStart = ("");
 				numberLinesZeroStart = ZeroCreator(reward-1) + 1;
+				Numberholder.add(numberLinesZeroStart);
 //				System.out.println(numberLinesZeroStart);
 				numberLinesZeroStart = ("");
 				numberLinesZeroStart = ZeroCreator(reward-1) + 2;
+				Numberholder.add(numberLinesZeroStart);
 //				System.out.println(numberLinesZeroStart);
 				numberLinesZeroStart = ("");
 				}
