@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Zahlenwürfelung {
 
-	public BigInteger stellen = new BigInteger("16");
+	public BigInteger stellen = new BigInteger("12");
 	public BigInteger Anfang = new BigInteger("0");
 	public BigInteger drei = new BigInteger("3");
 	public int wert0 = 0;
@@ -27,7 +27,7 @@ public class Zahlenwürfelung {
 		ArrayList<String> Numberholder = new ArrayList<String>();
 		for (int i = 0; i < drei.pow(stellen.intValue()).intValue(); i++) {
 			// System.out.println(i);
-//			System.out.println(Long.toString(i, 3)); // Binär
+			System.out.println(Long.toString(i, 3)); // Trinär
 			numberLines = Long.toString(i, 3);
 			Numberholder.add(numberLines);
 			// System.out.println(Long.valueOf(numberLines,3)+"\n"); //Trinär
@@ -37,15 +37,15 @@ public class Zahlenwürfelung {
 				{
 				numberLinesZeroStart = ZeroCreator(reward-1) + 0;
 				Numberholder.add(numberLinesZeroStart);
-//				System.out.println(numberLinesZeroStart);
+				System.out.println(numberLinesZeroStart);
 				numberLinesZeroStart = ("");
 				numberLinesZeroStart = ZeroCreator(reward-1) + 1;
 				Numberholder.add(numberLinesZeroStart);
-//				System.out.println(numberLinesZeroStart);
+				System.out.println(numberLinesZeroStart);
 				numberLinesZeroStart = ("");
 				numberLinesZeroStart = ZeroCreator(reward-1) + 2;
 				Numberholder.add(numberLinesZeroStart);
-//				System.out.println(numberLinesZeroStart);
+				System.out.println(numberLinesZeroStart);
 				numberLinesZeroStart = ("");
 				}
 			}
