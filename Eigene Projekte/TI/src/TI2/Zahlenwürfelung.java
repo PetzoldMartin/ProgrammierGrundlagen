@@ -5,7 +5,7 @@ import java.util.ArrayList;
 
 public class Zahlenwürfelung {
 
-	public BigInteger stellen = new BigInteger("12");
+	public BigInteger stellen = new BigInteger("16");
 	public BigInteger Anfang = new BigInteger("0");
 	public BigInteger drei = new BigInteger("3");
 	public int wert0 = 0;
