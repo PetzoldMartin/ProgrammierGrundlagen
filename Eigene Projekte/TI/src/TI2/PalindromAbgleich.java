@@ -1,6 +1,5 @@
 package TI2;
 
-import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.Iterator;
 
@@ -10,19 +9,22 @@ public class PalindromAbgleich {
 
 	public PalindromAbgleich() {
 		Konstrukfolgen = new Zahlenwürfelung().numberLines();
+		System.out.println(ErweiterungAufPalindrom());
 	}
 
 	public String ErweiterungAufPalindrom() {
-		
+
 		Iterator<String> it = Konstrukfolgen.iterator();
 		while (it.hasNext()) {
 			String M = "c";
 			String Konstrukt = it.next();
+			String Ausgabe = Konstrukt;
+			while(!Konstrukt.equals("")){
 			M = Erweiterung(M, DasLetzteGlied(Konstrukt));
-			Konstrukt=Konstrukt.substring(0,Konstrukt.length()-1);
-			if(vergleich(M))
-			{
-				return it.next()+M;
+			Konstrukt = Konstrukt.substring(0, Konstrukt.length() - 1);
+			}
+			if (vergleich(M)) {
+				return Ausgabe + "\n" + M;
 			}
 		}
 		return null;
@@ -43,17 +45,24 @@ public class PalindromAbgleich {
 	}
 
 	private int DasLetzteGlied(String Eingang) {
-		return 0;
+		if (Eingang.endsWith("0"))
+			return 0;
+		if (Eingang.endsWith("1"))
+			return 1;
+		if (Eingang.endsWith("2"))
+			return 2;
+		return 3;
+
 	}
 
 	public boolean vergleich(String forward) {
 		String backward = new StringBuffer(forward).reverse().toString();
 		if (forward.equals(backward)) {
 			// System.out.print("gleich");
-			return false;
+			return true;
 		} else {
 			// System.out.print("ungleich");
-			return true;
+			return false;
 		}
 	}
 
