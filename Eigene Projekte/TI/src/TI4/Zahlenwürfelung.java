@@ -26,8 +26,9 @@ public class Zahlenwürfelung {
 		int test= 0;
 		int test2 = 0;
 		PalindromAbgleich X = new PalindromAbgleich(numberLines);
-		for (long i = drei.pow(stellen.intValue()).longValue()
-				- drei.pow(Anfang.intValue()).longValue(); i < drei.pow(
+//		long i = drei.pow(stellen.intValue()).longValue()
+//		- drei.pow(Anfang.intValue()).longValue();
+		for (long i=0; i < drei.pow(
 				stellen.intValue()).longValue(); i++) {
 			// System.out.println(i);
 			// System.out.println(Long.toString(i, 3)); // Trinär
