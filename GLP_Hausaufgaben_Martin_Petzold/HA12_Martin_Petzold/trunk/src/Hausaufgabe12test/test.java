@@ -10,17 +10,26 @@ import org.junit.After;
 public class test {
 
 	private Box testbox;
+	/**
+	 * @throws Exception initialisiert einen Testkarton
+	 */
 	@Before
 	public void setUp() throws Exception {
 		
 		testbox = new Box(2,5,7);
 	}
 	
+	/**
+	 * Setzt den Testkarton auf null
+	 */
 	@After
 	public void tearDown()
 	{
 		testbox = null;
 	}
+	/**
+	 * Testet den Konstruktor für einen Würfelfürmigen Karton
+	 */
 	@Test
 	public void testWuerfelKarton() {
 		double i = 10;
@@ -29,16 +38,25 @@ public class test {
 		assertEquals("Die Übergabe für einen Würfelförmigen Karton im Wert Länge ist nicht Korrekt",i, Wuerfel.getLength(),0);
 		assertEquals("Die Übergabe für einen Würfelförmigen Karton im Wert Breite ist nicht Korrekt",i, Wuerfel.getWidth(),0);
 	}
+	/**
+	 * Testet ob die Methode der Volumenberechnung für Kartons Korrekt funktioniert
+	 */
 	@Test
 	public void testCalculateVolume() {
 		assertTrue("Die Volumenberechnung ist Fehlerhaft",testbox.calculateVolume()==70);
 	}
 
+	/**
+	 * Testet ob die Methode der Oberflächenberechnung für Kartons Korrekt funktioniert
+	 */
 	@Test
 	public void testCalculateSurfaceArea() {
 		assertTrue("Die Oberflächenberechnung ist Fehlerhaft",testbox.calculateSurfaceArea()==118);
 	}
 
+	/**
+	 * Testet ob der Karton korrekt vergrö?ert wird
+	 */
 	@Test
 	public void testGetBiggerBox() {
 		assertFalse("Es wurde keine Größere Box erstellt",testbox.getBiggerBox()==testbox);
@@ -47,6 +65,9 @@ public class test {
 		assertTrue("Die Breite wurde falsch verlängert",testbox.getBiggerBox().getWidth()==testbox.getWidth()*1.25);
 	}
 
+	/**
+	 * Testet ob ein Karton in einen Anderen Passt und wann nicht
+	 */
 	@Test
 	public void testFitsIn() {
 		Box testbox2 = new Box(2,5,7);
@@ -67,6 +88,9 @@ public class test {
 		testbox2.setWidth(testbox.getWidth());
 		assertFalse("Die FitsIn Methode ist im Breitenvergleich Fehlerhaft",testbox.FitsIn(testbox2));
 	}
+	/**
+	 * Testet ob der Konstruktor mit einen Übergebenen Karton funktioniert
+	 */
 	public void testBoxUebergabe()
 	{
 		Box testbox2 = new Box(testbox);
