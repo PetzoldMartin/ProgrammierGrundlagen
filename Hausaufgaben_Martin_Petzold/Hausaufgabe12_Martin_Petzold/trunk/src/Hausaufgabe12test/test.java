@@ -41,10 +41,10 @@ public class test {
 
 	@Test
 	public void testGetBiggerBox() {
-		assertFalse(testbox.getBiggerBox()==testbox);
-		assertTrue(testbox.getBiggerBox().getHeight()==testbox.getHeight()*1.25);
-		assertTrue(testbox.getBiggerBox().getLength()==testbox.getLength()*1.25);
-		assertTrue(testbox.getBiggerBox().getWidth()==testbox.getWidth()*1.25);
+		assertFalse("Es wurde keine Größere Box erstellt",testbox.getBiggerBox()==testbox);
+		assertTrue("Die Höhe wurde falsch verlängert",testbox.getBiggerBox().getHeight()==testbox.getHeight()*1.25);
+		assertTrue("Die Länge wurde falsch verlängert",testbox.getBiggerBox().getLength()==testbox.getLength()*1.25);
+		assertTrue("Die Breite wurde falsch verlängert",testbox.getBiggerBox().getWidth()==testbox.getWidth()*1.25);
 	}
 
 	@Test
