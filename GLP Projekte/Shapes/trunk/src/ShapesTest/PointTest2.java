@@ -29,7 +29,6 @@ public class PointTest2 {
 		assertTrue("Die equals Methode testet nicht auf Reflexivität",x.equals(x));
 		assertTrue("Die equals Methode testet nicht auf Symetrie",x.equals(y)&&y.equals(x));
 		assertTrue("Die equals Methode testet nicht auf Transitivität",x.equals(y)&&y.equals(z)&&x.equals(z));
-		assertTrue("",x.equals(y));
 		y = new Point (2,2);
 		assertFalse("Die equals Methode testet nicht auf Konsistenz",x.equals(y));
 		assertFalse(x.equals(null));
