@@ -10,12 +10,14 @@ import org.junit.Test;
 
 public class PointTest2 {
 
-	private Point p1;
-	private Point p2;
+	private Point x;
+	private Point y;
+	private Point z;
 	@Before
 	public void setUp() throws Exception {
-		p1 =new Point(1,1);
-		p2 =new Point(1,1);
+		x =new Point(1,1);
+		y =new Point(1,1);
+		z =new Point(1,1);
 	}
 
 	@After
@@ -24,7 +26,13 @@ public class PointTest2 {
 
 	@Test
 	public void testequals() {
-		assertTrue("Die equals Methode ist Fehlerhaft",p1.equals(p2));
+		assertTrue("Die equals Methode testet nicht auf Reflexivität",x.equals(x));
+		assertTrue("Die equals Methode testet nicht auf Symetrie",x.equals(y)&&y.equals(x));
+		assertTrue("Die equals Methode testet nicht auf Transitivität",x.equals(y)&&y.equals(z)&&x.equals(z));
+		assertTrue("",x.equals(y));
+		y = new Point (2,2);
+		assertFalse("Die equals Methode testet nicht auf Konsistenz",x.equals(y));
+		assertFalse(x.equals(null));
 	}
 
 }
