@@ -1,0 +1,18 @@
+package Shapes;
+
+
+/**
+ * Write a description of class test here.
+ * 
+ * @author (your name) 
+ * @version (a version number or a date)
+ */
+public class test extends Figure
+{
+  public test()
+  {
+      Figure.snowMan();
+      super.draw();
+    }
+
+}
