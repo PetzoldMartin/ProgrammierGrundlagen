@@ -1,8 +1,0 @@
-#BlueJ class context
-comment0.params=bottomLeft\ lx\ ly
-comment0.target=Rectangle(Point,\ int,\ int)
-comment0.text=\r\n\ Konstruktor\ fuer\ Objekte\ der\ class\ Rectangle\ \r\n\ erzeugt\ ein\ achsenparalleles\ Rechteck\r\n\ @param\ bottomLeft\ -\ linker\ unterer\ Eckpunkt\r\n\ @param\ lx\ -\ L\u00E4nge\ der\ Seiten\ in\ Richtung\ x-Achse\r\n\ @param\ ly\ -\ L\u00E4nge\ der\ Seiten\ in\ Richtung\ y-Achse\r\n
-comment1.params=
-comment1.target=void\ draw()
-comment1.text=\r\n\ zeichnet\ das\ Rechteck\ auf\ dem\ Whiteboard\r\n
-numComments=2
