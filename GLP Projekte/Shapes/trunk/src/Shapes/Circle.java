@@ -59,4 +59,10 @@ public class Circle extends Shape
         draw();
         return this;
     }
+	public Point getCenter() {
+		return center;
+	}
+	public int getRadius() {
+		return radius;
+	}
 }

@@ -51,4 +51,18 @@ public class Point
         this.y=this.y+dy;
         return this;
     }
+    public Point copy()
+    {
+    	Point CPoint = new Point(this.x,this.y);
+    	return CPoint;
+    }
+    
+    public boolean equals(Point VPoint)
+    {
+    	if (VPoint.getX()==this.getX()&&VPoint.getY()==this.getY())
+    	{
+    		return true;
+    	}
+    	else return false;
+    }
 }
