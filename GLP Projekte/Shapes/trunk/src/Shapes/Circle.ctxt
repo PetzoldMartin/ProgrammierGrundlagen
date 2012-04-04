@@ -1,0 +1,14 @@
+#BlueJ class context
+comment0.params=radius\ center
+comment0.target=Circle(int,\ Point)
+comment0.text=\ Konstruktor\ f\u00FCr\ Objekte\ der\ Klasse\ Circle\r\n\ @param\ center\ -\ Mittelpunkt\ des\ Kreises\r\n\ @param\ radius\ -\ Radius\ des\ Kreises\r\n
+comment1.params=
+comment1.target=void\ draw()
+comment1.text=\r\n\ zeichnet\ den\ Kreis\ auf\ der\ Zeichenfl\u00E4che\r\n
+comment2.params=color\ solid
+comment2.target=void\ draw(java.awt.Color,\ boolean)
+comment2.text=\r\n\ zeichnet\ den\ Kreis\ farbig\ ggf.\ ausgef\u00FCllt\ auf\ der\ Zeichenfl\u00E4che\r\n\ @param\ color\ -\ Farbe\r\n\ @param\ solid\ -\ wenn\ true,\ dann\ wird\ die\ Fl\u00E4che\ farbig\ ausgef\u00FCllt\r\n
+comment3.params=dx\ dy
+comment3.target=Drawable\ move(int,\ int)
+comment3.text=\r\n\ bewege\ den\ Kreis\ um\ dx,\ dy\r\n\ @param\ dx\ -\ distanz\ in\ x\r\n\ @param\ dy\ -\ distanz\ in\ y\r\n\ @return\ the\ circle\r\n
+numComments=4
