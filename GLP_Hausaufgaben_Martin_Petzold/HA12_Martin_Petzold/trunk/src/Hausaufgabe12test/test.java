@@ -55,7 +55,7 @@ public class test {
 	}
 
 	/**
-	 * Testet ob der Karton korrekt vergrö?ert wird
+	 * Testet ob der Karton korrekt vergrößert wird
 	 */
 	@Test
 	public void testGetBiggerBox() {
@@ -95,15 +95,15 @@ public class test {
 	{
 		Box testbox2 = new Box(testbox);
 		assertFalse("Die neue Box ist kein eigenständiges Objekt",testbox==(testbox2));
-		assertEquals(testbox.getHeight(), testbox2.getHeight(),0);
-		assertEquals(testbox.getLength(), testbox2.getLength(),0);
-		assertEquals(testbox.getWidth(), testbox2.getWidth(),0);
+		assertEquals("Die Höhe wurde an den neuen Karton fehlehaft übergeben",testbox.getHeight(), testbox2.getHeight(),0);
+		assertEquals("Die Länge wurde an den neuen Karton fehlehaft übergeben",testbox.getLength(), testbox2.getLength(),0);
+		assertEquals("Die Breite wurde an den neuen Karton fehlehaft übergeben",testbox.getWidth(), testbox2.getWidth(),0);
 		testbox2.setHeight(1);
 		testbox2.setLength(1);
 		testbox2.setWidth(1);
-		assertFalse(testbox.getHeight()==testbox2.getHeight());
-		assertFalse(testbox.getLength()==testbox2.getLength());
-		assertFalse(testbox.getWidth()==testbox2.getWidth());
+		assertFalse("Die Höhe des alten und neuen Kartons sind nicht voneinander unabhängig",testbox.getHeight()==testbox2.getHeight());
+		assertFalse("Die Länge des alten und neuen Kartons sind nicht voneinander unabhängig",testbox.getLength()==testbox2.getLength());
+		assertFalse("Die Breite des alten und neuen Kartons sind nicht voneinander unabhängig",testbox.getWidth()==testbox2.getWidth());
 		
 	}
 }
