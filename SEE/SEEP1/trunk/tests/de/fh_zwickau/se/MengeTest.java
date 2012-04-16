@@ -8,7 +8,7 @@ import org.junit.Test;
 
 /**
  * @author Aismael
- *
+ * 
  */
 public class MengeTest {
 
@@ -17,7 +17,8 @@ public class MengeTest {
 	int x, y, z, u, v;
 
 	/**
-	 * @throws Exception Initialisiert 2 Mengen un5 variablen von 1 bis 5
+	 * @throws Exception
+	 *             Initialisiert 2 Mengen un5 variablen von 1 bis 5
 	 */
 	@Before
 	public void setUp() throws Exception {
@@ -31,7 +32,8 @@ public class MengeTest {
 	}
 
 	/**
-	 * @throws Exception Setzt die Mengen Null
+	 * @throws Exception
+	 *             Setzt die Mengen Null
 	 */
 	@After
 	public void tearDown() throws Exception {
@@ -61,7 +63,7 @@ public class MengeTest {
 	}
 
 	/**
-	 *  Testet ob die is Empty Methode Korrekt arbeitet
+	 * Testet ob die is Empty Methode Korrekt arbeitet
 	 */
 	@Test
 	public void testIsEmpty() {
@@ -70,26 +72,28 @@ public class MengeTest {
 	}
 
 	/**
-	 * testet ob die Ellementzahl korrekt Wiedergegeben wird und
-	 * ob beim adden des selben Elements nur eins geschrieben wird
+	 * testet ob die Ellementzahl korrekt Wiedergegeben wird und ob beim adden
+	 * des selben Elements nur eins geschrieben wird
 	 */
 	@Test
 	public void testElementezahl() {
 		testMenge1.add(x);
-		assertEquals("Die Elementanzahl wird bei einem Element Falsch berechnet",
+		assertEquals(
+				"Die Elementanzahl wird bei einem Element Falsch berechnet",
 				testMenge1.elementezahl(), 1);
 		testMenge1.add(y);
-		assertEquals("Die Elementanzahl wird bei mehreren Elementen Falsch berechnet",
+		assertEquals(
+				"Die Elementanzahl wird bei mehreren Elementen Falsch berechnet",
 				testMenge1.elementezahl(), 2);
 		testMenge1.add(x);
 		assertEquals(
-				"Die Elementanzahl wird Falsch berechnet:bei zweimal Gleicher Werteingabe",2,
-				testMenge1.elementezahl());
+				"Die Elementanzahl wird Falsch berechnet:bei zweimal Gleicher Werteingabe",
+				2, testMenge1.elementezahl());
 	}
 
 	/**
-	 * Testet ob Elemente Korrekt gelöscht werden und
-	 * ob bei löschen eines nicht vorhandenen Elements ein Fehler Auftritt
+	 * Testet ob Elemente Korrekt gelöscht werden und ob bei löschen eines nicht
+	 * vorhandenen Elements ein Fehler Auftritt
 	 */
 	@Test
 	public void testDeleteElement() {
@@ -174,8 +178,8 @@ public class MengeTest {
 	}
 
 	/**
-	 * Testet ob die Durchscnittsberechnung die Richtige Exeption Wirft
-	 * und sich danach erholt
+	 * Testet ob die Durchscnittsberechnung die Richtige Exeption Wirft und sich
+	 * danach erholt
 	 */
 	@Test
 	public void testDurchschnittswertBeiLeererMenge() {
@@ -189,8 +193,9 @@ public class MengeTest {
 		}
 		try {
 			testMenge1.add(x);
-			assertEquals("die Durchschnittswertberechnung erholt sich nicht nach MengeIstLeerException ",1, testMenge1.durchschnittswert());
-			
+			assertEquals(
+					"die Durchschnittswertberechnung erholt sich nicht nach MengeIstLeerException ",
+					1, testMenge1.durchschnittswert());
 
 		} catch (MengeIstLeerException expected) {
 			fail("die Durchschnittswertberechnung erholt sich nicht nach MengeIstLeerException ");
@@ -218,7 +223,7 @@ public class MengeTest {
 		};
 		assertEquals(
 				"Die Zählung von Elementen mit bestimmten eigenschaffte ist falsch",
-				2,testMenge1.zaehle_elemente_mit_bestimmter_eigenschaft(bew));
+				2, testMenge1.zaehle_elemente_mit_bestimmter_eigenschaft(bew));
 
 	}
 
