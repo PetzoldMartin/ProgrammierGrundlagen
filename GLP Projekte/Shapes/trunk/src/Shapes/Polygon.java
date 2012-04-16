@@ -79,4 +79,15 @@ public class Polygon extends Shape
     {
         this.turn=turn;
     }
+    public boolean equals(Polygon obj) {
+		if (obj instanceof Polygon) {
+			Polygon VPolygon = (Polygon) obj;
+
+			if (VPolygon.getColor() == this.getColor()&&VPolygon.getPoints() == this.getPoints()) {
+				return true;
+			} else
+				return false;
+		} else
+			return false;
+	}
 }
