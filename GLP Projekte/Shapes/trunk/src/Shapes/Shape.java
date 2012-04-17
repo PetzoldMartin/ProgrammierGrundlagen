@@ -61,6 +61,7 @@ public abstract class Shape extends Drawable
     {
         this.solid=solid;
     }
+    
 //    public abstract boolean equals(Shape obj) {
 //		if (obj instanceof Shape) {
 //			Shape VShape = (Shape) obj;
