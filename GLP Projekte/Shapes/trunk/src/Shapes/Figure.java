@@ -45,7 +45,7 @@ public class Figure extends Drawable
      * @param dy - distanz in y 
      * @return das Polygon
      */
-    public Drawable move (int dx, int dy)
+    public Drawable move (double dx, double dy)
     {
        Iterator<Drawable> it = shapes.iterator();
         while(it.hasNext())

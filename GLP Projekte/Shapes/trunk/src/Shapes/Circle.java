@@ -10,12 +10,12 @@ import java.awt.Color;
 public class Circle extends Shape
 {
     private Point center;
-    private int radius;
+    private double radius;
     /** Konstruktor für Objekte der Klasse Circle
      * @param center - Mittelpunkt des Kreises
      * @param radius - Radius des Kreises
      */
-    public Circle(int radius, Point center)
+    public Circle(double radius, Point center)
     {
      this.center=center;
      this.radius=radius;
@@ -53,7 +53,7 @@ public class Circle extends Shape
      * @param dy - distanz in y
      * @return the circle
      */
-    public Drawable move(int dx,int dy)
+    public Drawable move(double dx,double dy)
     {
         center.move(dx,dy);
         draw();
@@ -62,7 +62,7 @@ public class Circle extends Shape
 	public Point getCenter() {
 		return center;
 	}
-	public int getRadius() {
+	public double getRadius() {
 		return radius;
 	}
 	

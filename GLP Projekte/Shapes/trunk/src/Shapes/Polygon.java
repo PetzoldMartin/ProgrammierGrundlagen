@@ -52,7 +52,7 @@ public class Polygon extends Shape
      * @param dy - Distanz in y
      * @return das Polygon
      */
-    public Polygon move(int dx, int dy)
+    public Polygon move(double dx, double dy)
     {
         Iterator<Point> it = points.iterator();
         while(it.hasNext())

@@ -46,6 +46,13 @@ public class ShapesMain {
 		}
 		Schneemann.rotate(new Point(20, 20), 45);
 		Schneemann.draw();
+		
+		long millisToWait6 = 1000;
+		long millis6 = System.currentTimeMillis();
+		while ((System.currentTimeMillis() - millis6) < millisToWait6) {
+		}
+		Schneemann.rotate(new Point(20, 20), 180);
+		Schneemann.draw();
 	}
 
 }

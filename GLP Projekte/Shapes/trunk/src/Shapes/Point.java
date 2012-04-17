@@ -8,8 +8,8 @@ package Shapes;
  */
 public class Point {
 	// instance variables - replace the example below with your own
-	private int x;
-	private int y;
+	private double x;
+	private double y;
 
 	/**
 	 * Konstruktor für Objekt der Klasse Point
@@ -19,7 +19,7 @@ public class Point {
 	 * @param y
 	 *            - y-Koordinate
 	 */
-	public Point(int x, int y) {
+	public Point(double x, double y) {
 		this.x = x;
 		this.y = y;
 	}
@@ -29,7 +29,7 @@ public class Point {
 	 * 
 	 * @return aktuellen Wert fuer x
 	 */
-	public int getX() {
+	public double getX() {
 		return x;
 	}
 
@@ -38,7 +38,7 @@ public class Point {
 	 * 
 	 * @return aktuellen Wert fuer y
 	 */
-	public int getY() {
+	public double getY() {
 		return y;
 	}
 
@@ -51,7 +51,7 @@ public class Point {
 	 *            - Distanz in y
 	 * @return den Punkt
 	 */
-	public Point move(int dx, int dy) {
+	public Point move(double dx, double dy) {
 		this.x = this.x + dx;
 		this.y = this.y + dy;
 		return this;
@@ -81,19 +81,19 @@ public class Point {
 		double Y1 = Y-center.getY();
 		double X2 = (X1*Math.cos(Math.toRadians(phi)))+(Y1*Math.sin(Math.toRadians(phi)));
 		double Y2 = (-X1*Math.sin(Math.toRadians(phi)))+(Y1*Math.cos(Math.toRadians(phi)));
-		Double X3= X2+center.getX();
-		Double Y3= Y2+center.getY();
-		this.setX(X3.intValue());
-		this.setY(Y3.intValue());
+		double X3= X2+center.getX();
+		double Y3= Y2+center.getY();
+		this.setX(X3);
+		this.setY(Y3);
 		
 		
 	}
 
-	private void setX(int x) {
+	private void setX(double x) {
 		this.x = x;
 	}
 
-	private void setY(int y) {
+	private void setY(double y) {
 		this.y = y;
 	}
 }

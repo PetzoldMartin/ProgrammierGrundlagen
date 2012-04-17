@@ -40,10 +40,10 @@ public class CircleTest {
 	public void testMove() {
 		assertTrue("Vortest vor move Fehlgeschlagen",x.equals(z));
 		assertEquals("der Kreismittelpunkt wird falsch übergeben",z.getCenter(), new Point(1,1));
-		assertEquals("der Kreisradius wird falsch übergeben",z.getRadius(), 1);
+		assertEquals("der Kreisradius wird falsch übergeben",z.getRadius(), 1,0);
 		z.move(10, 10);
 		assertEquals("der Kreismittelpunkt wird falsch verschoben",z.getCenter(), new Point(11,11));
-		assertEquals("der Kreisradius ist inkonsistent",z.getRadius(), 1);
+		assertEquals("der Kreisradius ist inkonsistent",z.getRadius(), 1,0);
 		assertFalse("Die kreismittelpunkte sind nicht unabhängig",x.equals(z));
 		
 	}
