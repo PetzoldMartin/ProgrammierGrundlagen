@@ -24,6 +24,6 @@ public abstract class Drawable
     * @param dy - distanz in y
     * 
     */
-    public abstract Drawable move (int dx, int dy);
+    public abstract Drawable move (double dx, double dy);
     public abstract Drawable rotate(Point center, double phi);
 }

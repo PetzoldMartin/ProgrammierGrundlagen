@@ -19,12 +19,14 @@ public class PointTest {
 
 	private Point x;
 	private Point y;
-	private Point z;
+	private Point z,u, center;
 	@Before
 	public void setUp() throws Exception {
 		x =new Point(1,1);
 		y =new Point(1,1);
 		z =new Point(1,1);
+		u = new Point(1000,1000);
+		center = new Point(0,0);
 	}
 
 	/**
@@ -48,11 +50,11 @@ public class PointTest {
 	@Test
 	public void testMove() {
 		assertTrue("Vortest vor move Fehlgeschlagen",x.equals(z));
-		assertEquals("Die X Koordinate wird falsch übergeben",z.getX(), 1);
-		assertEquals("Die Y Koordinate wird falsch übergeben",z.getY(), 1);
+		assertEquals("Die X Koordinate wird falsch übergeben",z.getX(), 1,0);
+		assertEquals("Die Y Koordinate wird falsch übergeben",z.getY(), 1,0);
 		z.move(10, 10);
-		assertEquals("Die X Koordinate wird falsch verschoben",z.getX(), 11);
-		assertEquals("Die Y Koordinate wird falsch verschoben",z.getY(), 11);
+		assertEquals("Die X Koordinate wird falsch verschoben",z.getX(), 11,0);
+		assertEquals("Die Y Koordinate wird falsch verschoben",z.getY(), 11,0);
 		assertEquals("der punkt wird falsch verschoben",z, new Point(11,11));
 		assertFalse("Die punkte sind nicht unabhängig",x.equals(z));
 		
@@ -65,6 +67,18 @@ public class PointTest {
 		y = new Point (2,2);
 		assertFalse("Die equals Methode testet nicht auf Konsistenz",x.equals(y));
 		assertFalse(x.equals(null));
+	}
+	@Test
+	public void rotate(){
+		u.rotate(center, 45);
+		assertEquals(u.getX(), 1414,0.4);
+		assertEquals(u.getY(), 0,0.4);
+		for(int i=1;i<=15;i++)
+		{
+			u.rotate(center, 15);
+		}
+		assertEquals(u.getX(), -1000,0.4);
+		assertEquals(u.getY(), 1000,0.4);
 	}
 
 }
