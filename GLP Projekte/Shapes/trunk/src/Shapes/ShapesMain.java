@@ -6,14 +6,18 @@ public class ShapesMain {
 	 * @param args
 	 */
 	public static void main(String[] args) {
-//		Rectangle  a2 = new Rectangle(new Point(1,1), 100, 200);
-//		a2.setSolid(true);
-//		a2.draw();
+		Rectangle  a2 = new Rectangle(new Point(-250,-250), 600, 600);
+		a2.setSolid(false);
+		a2.draw();
 //		Rectangle  a1 = new Rectangle(new Point(1,1), 100, 200);
 //		a1.rotate(new Point(0,0),90);
 //		a1.setSolid(true);
 //		a1.draw();
 		
+		long millisToWaitx = 1000;
+		long millisx = System.currentTimeMillis();
+		while ((System.currentTimeMillis() - millisx) < millisToWaitx) {
+		}
 		Figure Schneemann = Figure.snowMan();
 		Schneemann.draw();
 		long millisToWait = 200;
@@ -52,6 +56,16 @@ public class ShapesMain {
 		while ((System.currentTimeMillis() - millis6) < millisToWait6) {
 		}
 		Schneemann.rotate(new Point(20, 20), 180);
+		Schneemann.draw();
+		for(int i=1;i<=360;i++)
+		{
+			long millisToWait7 = 10;
+			long millis7 = System.currentTimeMillis();
+			while ((System.currentTimeMillis() - millis7) < millisToWait7) {
+			}
+			Schneemann.rotate(new Point(20, 20), 1);
+		}
+		
 		Schneemann.draw();
 	}
 
