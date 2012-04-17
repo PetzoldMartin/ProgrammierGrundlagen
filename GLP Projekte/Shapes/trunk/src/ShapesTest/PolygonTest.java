@@ -4,6 +4,7 @@ import static org.junit.Assert.*;
 
 import java.awt.Color;
 import java.util.ArrayList;
+import java.util.Iterator;
 
 import org.junit.After;
 import org.junit.Before;
@@ -13,39 +14,40 @@ import Shapes.Point;
 import Shapes.Polygon;
 
 public class PolygonTest {
-	Polygon P1, P2, P3;
+	Polygon x, y, z;
+	ArrayList<Point> A1,A2,A3;
 
 	@Before
 	public void setUp() throws Exception {
-		P1 = new Polygon();
-		ArrayList<Point> A1 = new ArrayList<Point>();
+		x = new Polygon();
+		A1 = new ArrayList<Point>();
 		A1.add(new Point(20, -35));
 		A1.add(new Point(20, -45));
 		A1.add(new Point(40, -30));
 		A1.add(new Point(40, -20));
-		P1.setPoints(A1);
-		P1.setSolid(true);
-		P1.setColor(Color.RED);
+		x.setPoints(A1);
+		x.setSolid(true);
+		x.setColor(Color.RED);
 
-		P2 = new Polygon();
-		ArrayList<Point> A2 = new ArrayList<Point>();
+		y = new Polygon();
+		A2 = new ArrayList<Point>();
 		A2.add(new Point(20, -35));
 		A2.add(new Point(20, -45));
 		A2.add(new Point(40, -30));
 		A2.add(new Point(40, -20));
-		P2.setPoints(A2);
-		P2.setSolid(true);
-		P2.setColor(Color.RED);
+		y.setPoints(A2);
+		y.setSolid(true);
+		y.setColor(Color.RED);
 
-		P3 = new Polygon();
-		ArrayList<Point> A3 = new ArrayList<Point>();
+		z = new Polygon();
+		A3 = new ArrayList<Point>();
 		A3.add(new Point(20, -35));
 		A3.add(new Point(20, -45));
 		A3.add(new Point(40, -30));
 		A3.add(new Point(40, -20));
-		P3.setPoints(A3);
-		P3.setSolid(true);
-		P3.setColor(Color.RED);
+		z.setPoints(A3);
+		z.setSolid(true);
+		z.setColor(Color.RED);
 	}
 
 	@After
@@ -68,8 +70,18 @@ public class PolygonTest {
 	}
 
 	@Test
-	public void testMoveIntInt() {
-		fail("Not yet implemented");
+	public void testMove() {
+		assertTrue("Vortest vor move Fehlgeschlagen",x.equals(z));
+		assertEquals("Das Punkte Arrey wird falsch übergeben",z.getPoints(), A3);
+		z.move(10, 10);
+		ArrayList<Point> A4 =A3;
+		for(Iterator <Point> iterator = A4.iterator(); iterator.hasNext();)
+        {
+            iterator.next().move(10,10);
+        }
+		assertEquals("Ein Punkt wurde falsch verschoben",z.getPoints(), A4);
+		assertFalse("Die Polygone sind nicht unabhängig",x.equals(z));
+		
 	}
 
 	@Test
@@ -84,17 +96,17 @@ public class PolygonTest {
 
 	@Test
 	public void testEqualsPolygon() {
-		assertTrue("Die equals Methode testet nicht auf Reflexivität", P1.equals(P1));
-		assertTrue("Die equals Methode testet nicht auf Symetrie",P1.equals(P2)&&P2.equals(P1));
-	    assertTrue("Die equals Methode testet nicht auf Transitivität",P1.equals(P2)&&P2.equals(P3)&&P1.equals(P3));
+		assertTrue("Die equals Methode testet nicht auf Reflexivität", x.equals(x));
+		assertTrue("Die equals Methode testet nicht auf Symetrie",x.equals(y)&&y.equals(x));
+	    assertTrue("Die equals Methode testet nicht auf Transitivität",x.equals(y)&&y.equals(z)&&x.equals(z));
 	    ArrayList<Point> A4 = new ArrayList<Point>();
 		A4.add(new Point(0, 0));
-		P3.setPoints(A4);
-		P3.setSolid(true);
-		P3.setColor(Color.BLUE);
-		assertFalse("Die equals Methode testet nicht auf Konsistenz",P1.equals(P3));
-		assertFalse(P1.equals(null));
-		System.out.println(P3.getPoints().size());
+		z.setPoints(A4);
+		z.setSolid(true);
+		z.setColor(Color.BLUE);
+		assertFalse("Die equals Methode testet nicht auf Konsistenz",x.equals(z));
+		assertFalse(x.equals(null));
+		System.out.println(z.getPoints().size());
 		
 	}
 

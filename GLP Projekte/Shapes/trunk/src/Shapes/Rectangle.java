@@ -47,6 +47,12 @@ public class Rectangle extends Polygon
 		} else
 			return false;
 	}
+	public double getLx() {
+		return lx;
+	}
+	public double getLy() {
+		return ly;
+	}
 
    
 }
