@@ -80,4 +80,10 @@ public class Circle extends Shape
 		} else
 			return false;
 	}
+	@Override
+	public Drawable rotate(Point center, double phi) {
+		this.center.rotate(center, phi);
+		draw();
+		return this;
+	}
 }

@@ -73,4 +73,27 @@ public class Point {
 		} else
 			return false;
 	}
+	public void rotate(Point center, double phi)
+	{
+		double X= this.getX();
+		double Y= this.getY();
+		double X1 = X-center.getX();
+		double Y1 = Y-center.getY();
+		double X2 = (X1*Math.cos(Math.toRadians(phi)))+(Y1*Math.sin(Math.toRadians(phi)));
+		double Y2 = (-X1*Math.sin(Math.toRadians(phi)))+(Y1*Math.cos(Math.toRadians(phi)));
+		Double X3= X2+center.getX();
+		Double Y3= Y2+center.getY();
+		this.setX(X3.intValue());
+		this.setY(Y3.intValue());
+		
+		
+	}
+
+	private void setX(int x) {
+		this.x = x;
+	}
+
+	private void setY(int y) {
+		this.y = y;
+	}
 }

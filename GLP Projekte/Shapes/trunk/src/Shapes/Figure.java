@@ -54,6 +54,15 @@ public class Figure extends Drawable
         }
        return this; 
     }
+    public Drawable rotate (Point center, double phi)
+    {
+       Iterator<Drawable> it = shapes.iterator();
+        while(it.hasNext())
+        {
+            it.next().rotate(center, phi);  
+        }
+       return this; 
+    }
     /**
      * zeichnet einen Schneemann auf das Whiteboard
      * @return Die Figur Schneemann.

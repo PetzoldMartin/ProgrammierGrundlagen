@@ -25,4 +25,5 @@ public abstract class Drawable
     * 
     */
     public abstract Drawable move (int dx, int dy);
+    public abstract Drawable rotate(Point center, double phi);
 }

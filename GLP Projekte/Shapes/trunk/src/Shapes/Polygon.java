@@ -90,4 +90,16 @@ public class Polygon extends Shape
 		} else
 			return false;
 	}
+    @Override
+	public Drawable rotate(Point center, double phi) {
+    	Iterator<Point> it = points.iterator();
+        while(it.hasNext())
+        {
+            it.next().rotate(center, phi);  
+        }
+        draw();
+        return this;
+		
+		
+	}
 }
