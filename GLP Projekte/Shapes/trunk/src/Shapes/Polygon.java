@@ -83,7 +83,7 @@ public class Polygon extends Shape
 		if (obj instanceof Polygon) {
 			Polygon VPolygon = (Polygon) obj;
 
-			if (VPolygon.getColor() == this.getColor()&&VPolygon.getPoints() == this.getPoints()) {
+			if (VPolygon.getColor() == this.getColor()&&VPolygon.getPoints().equals(this.getPoints())) {
 				return true;
 			} else
 				return false;

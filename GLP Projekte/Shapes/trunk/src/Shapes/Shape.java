@@ -61,4 +61,15 @@ public abstract class Shape extends Drawable
     {
         this.solid=solid;
     }
+//    public abstract boolean equals(Shape obj) {
+//		if (obj instanceof Shape) {
+//			Shape VShape = (Shape) obj;
+//
+//			if (VShape.getColor() == this.getColor()&&VShape.getWhiteBoard().equals(this.getWhiteBoard())) {
+//				return true;
+//			} else
+//				return false;
+//		} else
+//			return false;
+//}
 }

@@ -85,11 +85,17 @@ public class PolygonTest {
 	@Test
 	public void testEqualsPolygon() {
 		assertTrue("Die equals Methode testet nicht auf Reflexivität", P1.equals(P1));
-		// assertTrue("Die equals Methode testet nicht auf Symetrie",x.equals(y)&&y.equals(x));
-		// assertTrue("Die equals Methode testet nicht auf Transitivität",x.equals(y)&&y.equals(z)&&x.equals(z));
-		// y = new Point (2,2);
-		// assertFalse("Die equals Methode testet nicht auf Konsistenz",x.equals(y));
-		// assertFalse(x.equals(null));
+		assertTrue("Die equals Methode testet nicht auf Symetrie",P1.equals(P2)&&P2.equals(P1));
+	    assertTrue("Die equals Methode testet nicht auf Transitivität",P1.equals(P2)&&P2.equals(P3)&&P1.equals(P3));
+	    ArrayList<Point> A4 = new ArrayList<Point>();
+		A4.add(new Point(0, 0));
+		P3.setPoints(A4);
+		P3.setSolid(true);
+		P3.setColor(Color.BLUE);
+		assertFalse("Die equals Methode testet nicht auf Konsistenz",P1.equals(P3));
+		assertFalse(P1.equals(null));
+		System.out.println(P3.getPoints().size());
+		
 	}
 
 }

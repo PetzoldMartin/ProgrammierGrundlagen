@@ -65,11 +65,15 @@ public class Circle extends Shape
 	public int getRadius() {
 		return radius;
 	}
+	
+	
 	public boolean equals(Object obj) {
 		if (obj instanceof Circle) {
 			Circle VCircle = (Circle) obj;
 
-			if (VCircle.getCenter() == this.getCenter() && VCircle.getRadius() == this.getRadius()&&VCircle.getColor() == this.getColor()) {
+			Point point1 =VCircle.getCenter();
+			Point point2 =this.getCenter();
+			if (point1.equals(point2)&& VCircle.getRadius() == this.getRadius()&&VCircle.getColor() == this.getColor()) {
 				return true;
 			} else
 				return false;

@@ -36,6 +36,17 @@ public class Rectangle extends Polygon
         representation = getWhiteBoard().drawRectangle(cx ,cy ,lx/2 , ly/2 ,
                                                            getColor() ,isSolid(), 0);
     }
+    public boolean equals(Rectangle obj) {
+		if (obj instanceof Rectangle) {
+			Rectangle VRectangele = (Rectangle) obj;
+
+			if (VRectangele.getColor() == this.getColor()&&VRectangele.getPoints().equals(this.getPoints())) {
+				return true;
+			} else
+				return false;
+		} else
+			return false;
+	}
 
    
 }
