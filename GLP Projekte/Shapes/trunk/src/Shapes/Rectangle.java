@@ -30,9 +30,9 @@ public class Rectangle extends Polygon {
 	public Rectangle(Point bottomLeft, double lx, double ly) {
 		this.lx = lx;
 		this.ly = ly;
-		this.points.add(new Point(bottomLeft.getX(), bottomLeft.getY()));
-		cx =  (points.get(0).getX() + lx / 2);
-		cy =  (points.get(0).getY() + ly / 2);
+	//	this.points.add(new Point(bottomLeft.getX(), bottomLeft.getY()));
+		cx =  (bottomLeft.getX() + lx / 2);
+		cy =  (bottomLeft.getY() + ly / 2);
 		this.points.add(new Point(cx, cy));
 	}
 
@@ -44,7 +44,7 @@ public class Rectangle extends Polygon {
 		// double cx = points.get(0).getX() + lx / 2;
 		// double cy = points.get(0).getY() + ly / 2;
 		representation = getWhiteBoard().drawRectangle(
-				this.points.get(1).getX(), this.points.get(1).getY(), lx / 2,
+				this.points.get(0).getX(), this.points.get(0).getY(), lx / 2,
 				ly / 2, getColor(), isSolid(), this.getPhiGlobal());
 	}
 

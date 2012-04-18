@@ -15,8 +15,12 @@ public class Circle extends Shape
      * @param center - Mittelpunkt des Kreises
      * @param radius - Radius des Kreises
      */
-    public Circle(double radius, Point center)
+    public Circle(double radius, Point center) throws IllegalArgumentException
     {
+    	if (radius<=0)
+    	{
+    		throw new IllegalArgumentException("es gibt keine Kreise mit kleiner gleich 0");
+    	}
      this.center=center;
      this.radius=radius;
     }
