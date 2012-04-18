@@ -10,6 +10,7 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+import ShapeExceptions.PolygoneShapeException;
 import Shapes.Point;
 import Shapes.Polygon;
 
@@ -95,11 +96,13 @@ public class PolygonTest {
 	}
 
 	@Test
-	public void testEqualsPolygon() {
+	public void testEqualsPolygon() throws PolygoneShapeException {
 		assertTrue("Die equals Methode testet nicht auf Reflexivität", x.equals(x));
 		assertTrue("Die equals Methode testet nicht auf Symetrie",x.equals(y)&&y.equals(x));
 	    assertTrue("Die equals Methode testet nicht auf Transitivität",x.equals(y)&&y.equals(z)&&x.equals(z));
 	    ArrayList<Point> A4 = new ArrayList<Point>();
+		A4.add(new Point(0, 0));
+		A4.add(new Point(0, 0));
 		A4.add(new Point(0, 0));
 		z.setPoints(A4);
 		z.setSolid(true);
@@ -109,5 +112,13 @@ public class PolygonTest {
 		System.out.println(z.getPoints().size());
 		
 	}
-
+	@Test (expected = PolygoneShapeException.class)
+	public void testPolygoneShapeException() throws PolygoneShapeException
+	{
+		Polygon u = new Polygon();
+		A1 = new ArrayList<Point>();
+		A1.add(new Point(20, -35));
+		A1.add(new Point(20, -45));
+		u.setPoints(A1);
+	}
 }

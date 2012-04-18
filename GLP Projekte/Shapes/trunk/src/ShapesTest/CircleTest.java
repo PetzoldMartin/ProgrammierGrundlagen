@@ -88,5 +88,10 @@ public class CircleTest {
 		assertFalse("Die equals Methode testet nicht auf Konsistenz",x.equals(y));
 		assertFalse(x.equals(null));
 	}
+	@Test (expected = IllegalArgumentException.class)
+	public void testIllegalArgumentException()
+	{
+		new Circle(0, new Point (1,1));
+	}
 
 }

@@ -1,6 +1,8 @@
 package Shapes;
 import java.util.*;
 
+import ShapeExceptions.PolygoneShapeException;
+
 
 
 /**
@@ -9,14 +11,14 @@ import java.util.*;
  * @author (Martin Petzold) 
  * @version (2.1)
  */
-public class Polygon extends Shape
+public class Polygon extends Shape 
 {
     protected ArrayList<Point> points=new ArrayList<Point>();
     private double turn=0;
      /**
      * Konstruktor der Klasse Polygon.
      */
-    public Polygon()
+    public Polygon() 
     {
        
     }
@@ -67,8 +69,12 @@ public class Polygon extends Shape
      * setze die Eckpunkte des Polygons
      * @param p liste der Punkte
      */
-    public void setPoints(ArrayList<Point> p)
+    public void setPoints(ArrayList<Point> p) throws PolygoneShapeException
     {
+    	if(p.size()<=2)
+    	{
+    		throw new PolygoneShapeException("Ein Polygon muss mindestens aus drei Punkten bestehen");
+    	}
         points=p;
     }
     /**

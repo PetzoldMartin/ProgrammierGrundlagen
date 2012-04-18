@@ -4,6 +4,8 @@ import java.util.Iterator;
 import java.util.ArrayList;
 import java.awt.Color;
 
+import ShapeExceptions.PolygoneShapeException;
+
 /**
  * Eine Figur, die aus mehreren Elementen (Formen) besteht
  * 
@@ -66,8 +68,9 @@ public class Figure extends Drawable
     /**
      * zeichnet einen Schneemann auf das Whiteboard
      * @return Die Figur Schneemann.
+     * @throws PolygoneShapeException 
      */ 
-    public static Figure snowMan()
+    public static Figure snowMan() throws PolygoneShapeException
     {
         
         
