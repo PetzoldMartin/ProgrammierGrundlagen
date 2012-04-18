@@ -2,7 +2,8 @@
 <classpath>
 	<classpathentry kind="src" path="src"/>
 	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER/org.eclipse.jdt.internal.debug.ui.launcher.StandardVMType/JavaSE-1.7"/>
-	<classpathentry kind="lib" path="D:/eclipse workplace/Hausaufgabe_13_Martin Petzold/Hausaufgabe+13/HA_13_RoomManager.jar" sourcepath="C:/Users/Aismael/Downloads/Hausaufgabe+13/doc">
+	<classpathentry kind="con" path="org.eclipse.jdt.junit.JUNIT_CONTAINER/4"/>
+	<classpathentry kind="lib" path="D:/eclipse workplace/Hausaufgabe_13_Martin Petzold/Hausaufgabe+13/HA_13_RoomManager.jar">
 		<attributes>
 			<attribute name="javadoc_location" value="file:/D:/eclipse workplace/Hausaufgabe_13_Martin Petzold/Hausaufgabe+13/doc/"/>
 		</attributes>
