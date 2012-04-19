@@ -37,7 +37,7 @@ public class TestBadRoomManager {
 	 * !!!Fehler 10 ArreyIndexOutOfBoundsExeption wenn nicht vorhandener Wert gelˆscht wird
 	 * 
 	 * ?Zusammenfassung 1&2  Aus Fehler 1 und 2 kann man schlieﬂen ,dass wenn eine Anfrage ohne Beamer Gestellt wird ein Fehler ausgegeben wird
-	 * ?Zusammenfassung 4&5 Aus Fehler 4 und 5 kann man schlieﬂen , dass Wenn das Boolerboolean in Anfrage und Raum verschieden sind immer ein Fehler Erzeugt wird
+	 * ?Zusammenfassung 4&5 Aus Fehler 4 und 5 kann man schlieﬂen , dass Wenn das Boolerboolean in Anfrage und Raum gleich sind immer ein Fehler Erzeugt wird
 	 * ? zu 9 Vlt sind die Werte Arbeitspl‰tze und Computerpl‰tze vertauscht
 	 */
 
