@@ -6,27 +6,44 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * @author Martin Petzold
+ *
+ */
 public class TestBadRoomManager {
 	RoomManager rm1, rm2, rm3, rm4, rm5, rm6, rm7, rm8;
 	Room R1, R2, R3, R4, R5, R6, R7, R8;
 	ArrayList<Room> S1, S2, S3, S4, S5, S6, S7, S8;
 	/*
+	 *!!! Fehlerbeschreibung wird bei Testmethoden wiederholt!!
+	 * 
 	 * Test get Matching Rooms
-	 * !!!Fehler Nummer 1 Wenn ein Beamer vorhanden ist aber keiner gewünsht wird wird der raum nicht Angezeigt!!
-	 * !!!Fehler Nummer 2 Wenn ein Raum ohne Beamer Erfragt wird und der Raum keinen hat trotzdem False!!
-	 * !!!Fehler Nummer 3 Wenn der Grenzwert eines Raumes erreicht ist wird dieser nicht angezeigt!!
+	 * !!!Fehler Nummer 1 Wenn ein Beamer vorhanden ist aber keiner gewünscht wird wird der Raum nicht Angezeigt!!
+	 * !!!Fehler Nummer 2 Wenn ein Raum ohne Beamer Erfragt wird und der Raum keinen hat Fehler!!
+	 * !!!Fehler Nummer 3 Wenn der Grenzwert eines Raumes erreicht ist Fehler!!
 	 * 
 	 * Test Get Matching ComputerPools
-	 * !!!Fehler 4 Wenn Beamer in Anfrage und raum enthalten falsche Ausgabe!!!
+	 * !!!Fehler 4 Wenn Beamer in Anfrage und Raum enthalten falsche Ausgabe!!!
 	 * !!!Fehler 5 Wenn Beamer nicht nachgefragt und nicht vorhanden Fehler!!!
 	 * !!!Fehler 6 Abfrage des Grenzwertes oberhalb der Computerpoolplätze ist falsch!!!
+	 * !!!Fehler 9 Arbeitsplätze und Computer_Plätze sind nicht unabhängig
 	 *
 	 * Test get Matching Room in a building
-	 * !!!Fehler 7 wenn kein beamer Vorhanden aber einer gefragt wird Fehler
-	 * !!!Fehler 8 Wenn oberer Grenzwert des Computerpools erreicht!!
+	 * !!!Fehler 7 wenn kein Beamer Vorhanden aber einer gefragt wird Fehler
+	 * !!!Fehler 8 Wenn oberer Grenzwert des Computerpools erreicht wird Fehler!!
 	 * 
+	 * 
+	 * Test DeleteRoom
+	 * !!!Fehler 10 ArreyIndexOutOfBoundsExeption wenn nicht vorhandener Wert gelöscht wird
+	 * 
+	 * ?Zusammenfassung 1&2  Aus Fehler 1 und 2 kann man schließen ,dass wenn eine Anfrage ohne Beamer Gestellt wird ein Fehler ausgegeben wird
+	 * ?Zusammenfassung 4&5 Aus Fehler 4 und 5 kann man schließen , dass Wenn das Boolerboolean in Anfrage und Raum verschieden sind immer ein Fehler Erzeugt wird
+	 * ? zu 9 Vlt sind die Werte Arbeitsplätze und Computerplätze vertauscht
 	 */
 
+	/**
+	 * @throws Exception
+	 */
 	@Before
 	public void setUp() throws Exception {
 		rm1 = new BadRoomManager();
@@ -58,10 +75,16 @@ public class TestBadRoomManager {
 		rm6.registerRoom(R6);
 	}
 
+	/**
+	 * @throws Exception
+	 */
 	@After
 	public void tearDown() throws Exception {
 	}
 
+	/**
+	 * 
+	 */
 	@Test
 	public void testregisterRoom() {
 		assertFalse("Die RoomManager sind nicht voneinander Unabhängig",
@@ -81,6 +104,9 @@ public class TestBadRoomManager {
 
 	}
 
+	/**
+	 * 
+	 */
 	@Test
 	public void testgetMatchingRooms() {
 
@@ -147,15 +173,32 @@ public class TestBadRoomManager {
 
 	}
 
-	// @Test
-	// public void testdeleteRoom() {
-	// rm1.registerRoom(R1);
-	// // assertTrue(rm1.deleteRoom(R1));
-	// rm1.deleteRoom(R1);
-	// assertEquals("Ein vorhandener Raum konnte nicht gelöscht werden",S1,
-	// rm1.getMatchingRooms(false, 12));
-	//
-	// }
+	 @Test
+	 public void testdeleteRoom() {
+		//  test für löschung eines Raumes
+	 assertEquals("Der Raum wurde nicht hinzugefügt",1, rm1.getMatchingRooms(true,15).size());
+	 assertTrue("Die Ausführung des Löschforgangs ist falsch",rm1.deleteRoom(R1));	 
+	 assertEquals("Ein vorhandener Raum konnte nicht gelöscht werden",0, rm1.getMatchingRooms(true,15).size());
+	 assertEquals("Ein vorhandener Raum konnte nicht gelöscht werden",S1,
+	 rm1.getMatchingRooms(false, 12));
+	// test für die Löschung eines nicht vorhandenen Raumes
+	 S4.add(R1);
+	 rm1.registerRoom(R1);
+//	 assertFalse("Die Ausführung des Löschforgangs ist falsch",rm1.deleteRoom(R2));//!!!Fehler 10 ArreyIndexOutOfBoundsExeption wenn nicht vorhandener Wert gelöscht wird
+//	 assertEquals("Ein nicht vorhandener Raum wurde Falsch gelöscht werden",1, rm1.getMatchingRooms(true,15).size());
+//	 assertEquals("Ein nicht vorhandener Raum Wurde falsch gelöscht werden",S4,
+//	 rm1.getMatchingRooms(false, 12));
+	 // test für die Löschung bei mehreren Räumen
+	 rm2.registerRoom(R1);
+	 S5.add(R1);
+	 assertTrue("Die Ausführung des Löschforgangs ist falsch",rm2.deleteRoom(R2));	 
+	 assertEquals("Ein vorhandener Raum konnte nicht gelöscht werden",1, rm2.getMatchingRooms(true,0).size());
+	 assertEquals("Ein vorhandener Raum konnte nicht gelöscht werden",S5,
+	 rm1.getMatchingRooms(true, 0));
+	 }
+	/**
+	 * 
+	 */
 	@Test
 	public void testgetMatchingComputerPools() {
 		S1.add(R1);
@@ -220,9 +263,23 @@ public class TestBadRoomManager {
 //		assertEquals(
 //				"Computerpool oberhalb des Grenzwertes Abfrage ist nicht korrekt",
 //				S3, rm1.getMatchingComputerPools(true, 17, 15));//!!!Fehler 6 Abfrage des Grenzwertes oberhalb der Computerpoolplätze ist falsch!!!
+		assertEquals(
+				"Auch Räume die kein Computerpool sind werden als solcher gewertet",
+				S3, rm4.getMatchingComputerPools(true, 15, 15));
+		S4.add(R3);
+//		assertEquals(
+//				"Arbeitsplätze und Computer_Plätze sind nicht unabhängig",
+//				S4, rm3.getMatchingComputerPools(true, 15, 0));//Fehler 9 !!!Arbeitsplätze und Computer_Plätze sind nicht unabhängig
+		S6.add(R6);
+		assertEquals(
+				"Arbeitsplätze und Computer_Plätze sind nicht unabhängig",
+				S6, rm6.getMatchingComputerPools(true, 0, 15));
 
 	}
 
+	/**
+	 * 
+	 */
 	@Test
 	public void testgetMatchingRoomInABuilding() {
 		S1.add(R1);
