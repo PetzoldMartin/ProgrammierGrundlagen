@@ -55,11 +55,11 @@ public class TestBadRoomManager {
 		rm6 = new BadRoomManager();
 		rm7 = null;
 		R1 = new Room("100", true, 16, true, "R", 16);
-		R2 = new Room("100", false, 16, true, "R", 16);
-		R3 = new Room("100", true, 1, true, "R", 16);
-		R4 = new Room("100", true, 16, false, "R", 16);
-		R5 = new Room("100", true, 16, true, "T", 16);
-		R6 = new Room("100", true, 16, true, "R", 1);
+		R2 = new Room("101", false, 16, true, "R", 16);
+		R3 = new Room("102", true, 1, true, "R", 16);
+		R4 = new Room("104", true, 16, false, "R", 16);
+		R5 = new Room("105", true, 16, true, "T", 16);
+		R6 = new Room("106", true, 16, true, "R", 1);
 		R7 = null;
 		S1 = new ArrayList<Room>();
 		S2 = new ArrayList<Room>();
