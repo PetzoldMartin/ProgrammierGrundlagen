@@ -22,10 +22,10 @@ public class TestGoodRoomManager {
 		rm7 = null;
 		R1 = new Room("100", true, 16, true, "R", 16);
 		R2 = new Room("100", false, 16, true, "R", 16);
-		R3 = new Room("100", true, 17, true, "R", 16);
+		R3 = new Room("100", true, 1, true, "R", 16);
 		R4 = new Room("100", true, 16, false, "R", 16);
 		R5 = new Room("100", true, 16, true, "T", 16);
-		R6 = new Room("100", true, 16, true, "R", 17);
+		R6 = new Room("100", true, 16, true, "R", 1);
 		R7 = null;
 		S1 = new ArrayList<Room>();
 		S2 = new ArrayList<Room>();
@@ -124,15 +124,15 @@ public class TestGoodRoomManager {
 
 	}
 
-	 @Test
-	 public void testdeleteRoom() {
-	 rm1.registerRoom(R1);
-	 // assertTrue(rm1.deleteRoom(R1));
-	 rm1.deleteRoom(R1);
-	 assertEquals("Ein vorhandener Raum konnte nicht gelöscht werden",S1,
-	 rm1.getMatchingRooms(false, 12));
-	
-	 }
+	// @Test
+	// public void testdeleteRoom() {
+	// rm1.registerRoom(R1);
+	// // assertTrue(rm1.deleteRoom(R1));
+	// rm1.deleteRoom(R1);
+	// assertEquals("Ein vorhandener Raum konnte nicht gelöscht werden",S1,
+	// rm1.getMatchingRooms(false, 12));
+	//
+	// }
 	@Test
 	public void testgetMatchingComputerPools() {
 		S1.add(R1);
@@ -140,59 +140,149 @@ public class TestGoodRoomManager {
 		// Beamer Abfragen
 		assertEquals(
 				"Computerpool mit Beamer Abfrage bei vorhandenen Beamer ist nicht korrekt",
-				S1, rm1.getMatchingComputerPools(true,0, 15));
+				S1, rm1.getMatchingComputerPools(true, 0, 15));
 		assertEquals(
-				"Raum ohne Beamer Abfrage bei vorhandenen Beamer ist nicht korrekt",
-				S1, rm1.getMatchingComputerPools(false,0, 15));
+				"Computerpool ohne Beamer Abfrage bei vorhandenen Beamer ist nicht korrekt",
+				S1, rm1.getMatchingComputerPools(false, 0, 15));
 		assertEquals(
-				"Raum mit Beamer Abfrage bei nicht vorhandenen Beamer ist nicht korrekt",
-				S3, rm2.getMatchingComputerPools(true,0, 15));
+				"Computerpool mit Beamer Abfrage bei nicht vorhandenen Beamer ist nicht korrekt",
+				S3, rm2.getMatchingComputerPools(true, 0, 15));
 		S2.add(R2);
 		assertEquals(
-				"Raum ohne Beamer Abfrage bei nicht vorhandenen Beamer ist nicht korrekt",
-				S2, rm2.getMatchingComputerPools(false,0, 15));
+				"Computerpool ohne Beamer Abfrage bei nicht vorhandenen Beamer ist nicht korrekt",
+				S2, rm2.getMatchingComputerPools(false, 0, 15));
 		// Grenzwert Abfragen
 		assertEquals(
-				"Grenzwertabfrage bei Raumgröße ist im Maximalwert nicht korrekt",
-				S1, rm1.getMatchingComputerPools(true,0, 16));
+				"Computerpool Grenzwertabfrage bei Raumgröße ist im Maximalwert nicht korrekt",
+				S1, rm1.getMatchingComputerPools(true, 0, 16));
 		assertEquals(
-				"Grenzwertabfrage bei Werten oberhalb der Grenze ist nicht korrekt",
-				S3, rm1.getMatchingComputerPools(true,0, 17));
-		assertEquals("Grenzwertabfrage bei Wert 0 ist nicht korrekt", S1,
-				rm1.getMatchingComputerPools(true,0, 0));
-		assertEquals("Grenzwertabfrage bei Wert -1 ist nicht korrekt", S1,
-				rm1.getMatchingComputerPools(true,0, -1));// ??? negative Plätze ???
+				"Computerpool Grenzwertabfrage bei Werten oberhalb der Grenze ist nicht korrekt",
+				S3, rm1.getMatchingComputerPools(true, 0, 17));
+		assertEquals(
+				"Computerpool Grenzwertabfrage bei Wert 0 ist nicht korrekt",
+				S1, rm1.getMatchingComputerPools(true, 0, 0));
+		assertEquals(
+				"Computerpool Grenzwertabfrage bei Wert -1 ist nicht korrekt",
+				S1, rm1.getMatchingComputerPools(true, -1, -1));// ??? negative
+																// Plätze ???
 		// gemischte Abfragen Beamer und oberer Grenzwert
 		assertEquals(
-				"Raum mit Beamer Abfrage bei vorhandenen Beamer und oberen Grenzwert ist nicht korrekt",
-				S1, rm1.getMatchingComputerPools(true,0, 16));
+				"Computerpool  mit Beamer Abfrage bei vorhandenen Beamer und oberen Grenzwert ist nicht korrekt",
+				S1, rm1.getMatchingComputerPools(true, 0, 16));
 		assertEquals(
-				"Raum ohne Beamer Abfrage bei vorhandenen Beamer und oberen Grenzwert ist nicht korrekt",
-				S1, rm1.getMatchingComputerPools(false,0, 16));
+				"Computerpool  ohne Beamer Abfrage bei vorhandenen Beamer und oberen Grenzwert ist nicht korrekt",
+				S1, rm1.getMatchingComputerPools(false, 0, 16));
 		assertEquals(
-				"Raum mit Beamer Abfrage bei nicht vorhandenen Beamer und oberen Grenzwert ist nicht korrekt",
-				S3, rm2.getMatchingComputerPools(true,0, 16));
+				"Computerpool  mit Beamer Abfrage bei nicht vorhandenen Beamer und oberen Grenzwert ist nicht korrekt",
+				S3, rm2.getMatchingComputerPools(true, 0, 16));
 		assertEquals(
-				"Raum ohne Beamer Abfrage bei nicht vorhandenen Beamer und oberen Grenzwert ist nicht korrekt",
-				S2, rm2.getMatchingComputerPools(false,0, 16));
+				"Computerpool  ohne Beamer Abfrage bei nicht vorhandenen Beamer und oberen Grenzwert ist nicht korrekt",
+				S2, rm2.getMatchingComputerPools(false, 0, 16));
 		// gemischte Abfragen Beamer und oberhalb des Grenzwertes
 		assertEquals(
-				"Raum mit Beamer Abfrage bei vorhandenen Beamer und oberhalb des Grenzwertes ist nicht korrekt",
-				S3, rm1.getMatchingComputerPools(true,0, 17));
+				"Computerpool mit Beamer Abfrage bei vorhandenen Beamer und oberhalb des Grenzwertes ist nicht korrekt",
+				S3, rm1.getMatchingComputerPools(true, 0, 17));
 		assertEquals(
-				"Raum ohne Beamer Abfrage bei vorhandenen Beamer und oberhalb des Grenzwertes ist nicht korrekt",
-				S3, rm1.getMatchingComputerPools(false,0, 17));
+				"Computerpool ohne Beamer Abfrage bei vorhandenen Beamer und oberhalb des Grenzwertes ist nicht korrekt",
+				S3, rm1.getMatchingComputerPools(false, 0, 17));
 		assertEquals(
-				"Raum mit Beamer Abfrage bei nicht vorhandenen Beamer und oberhalb des Grenzwertes ist nicht korrekt",
-				S3, rm2.getMatchingComputerPools(true,0, 17));
+				"Computerpool mit Beamer Abfrage bei nicht vorhandenen Beamer und oberhalb des Grenzwertes ist nicht korrekt",
+				S3, rm2.getMatchingComputerPools(true, 0, 17));
 		assertEquals(
-				"Raum ohne Beamer Abfrage bei nicht vorhandenen Beamer und oberhalb des Grenzwertes ist nicht korrekt",
-				S3, rm2.getMatchingComputerPools(false,0, 17));
+				"Computerpool ohne Beamer Abfrage bei nicht vorhandenen Beamer und oberhalb des Grenzwertes ist nicht korrekt",
+				S3, rm2.getMatchingComputerPools(false, 0, 17));
+		// Abfragen der Vorhandenen PC Plätze
+		assertEquals("Computerpool oberer Grenzwert Abfrage ist nicht korrekt",
+				S1, rm1.getMatchingComputerPools(true, 16, 15));
+		assertEquals(
+				"Computerpool oberhalb des Grenzwertes Abfrage ist nicht korrekt",
+				S3, rm1.getMatchingComputerPools(true, 17, 15));
+
 	}
 
-	// @Test
-	// public void testgetMatchingRoomInABuilding() {
-	// fail("Not yet implemented");
-	// }
+	@Test
+	public void testgetMatchingRoomInABuilding() {
+		S1.add(R1);
+		assertNull("Es können nicht erzeugte RoomManager Abgefragt werden", R7);
+		// Beamer Abfragen
+		assertEquals(
+				"Computerpool in einem Gebäude mit Beamer Abfrage bei vorhandenen Beamer ist nicht korrekt",
+				S1, rm1.getMatchingRoomInABuilding(true, 0, 15, "R"));
+		assertEquals(
+				"Computerpool in einem Gebäude ohne Beamer Abfrage bei vorhandenen Beamer ist nicht korrekt",
+				S1, rm1.getMatchingRoomInABuilding(false, 0, 15, "R"));
+		assertEquals(
+				"Computerpool in einem Gebäude mit Beamer Abfrage bei nicht vorhandenen Beamer ist nicht korrekt",
+				S3, rm2.getMatchingRoomInABuilding(true, 0, 15, "R"));
+		S2.add(R2);
+		assertEquals(
+				"Computerpool in einem Gebäude ohne Beamer Abfrage bei nicht vorhandenen Beamer ist nicht korrekt",
+				S2, rm2.getMatchingRoomInABuilding(false, 0, 15, "R"));
+		// Grenzwert Abfragen
+		assertEquals(
+				"Computerpool in einem Gebäude Grenzwertabfrage bei Raumgröße ist im Maximalwert nicht korrekt",
+				S1, rm1.getMatchingRoomInABuilding(true, 0, 16, "R"));
+		assertEquals(
+				"Computerpool in einem Gebäude Grenzwertabfrage bei Werten oberhalb der Grenze ist nicht korrekt",
+				S3, rm1.getMatchingRoomInABuilding(true, 0, 17, "R"));
+		assertEquals(
+				"Computerpool in einem Gebäude Grenzwertabfrage bei Wert 0 ist nicht korrekt",
+				S1, rm1.getMatchingRoomInABuilding(true, 0, 0, "R"));
+		assertEquals(
+				"Computerpool in einem Gebäude Grenzwertabfrage bei Wert -1 ist nicht korrekt",
+				S1, rm1.getMatchingRoomInABuilding(true, -1, -1, "R"));// ???
+																		// negative
+																		// Plätze
+																		// ???
+		// gemischte Abfragen Beamer und oberer Grenzwert
+		assertEquals(
+				"Computerpool in einem Gebäude  mit Beamer Abfrage bei vorhandenen Beamer und oberen Grenzwert ist nicht korrekt",
+				S1, rm1.getMatchingRoomInABuilding(true, 0, 16, "R"));
+		assertEquals(
+				"Computerpool in einem Gebäude ohne Beamer Abfrage bei vorhandenen Beamer und oberen Grenzwert ist nicht korrekt",
+				S1, rm1.getMatchingRoomInABuilding(false, 0, 16, "R"));
+		assertEquals(
+				"Computerpool in einem Gebäude mit Beamer Abfrage bei nicht vorhandenen Beamer und oberen Grenzwert ist nicht korrekt",
+				S3, rm2.getMatchingRoomInABuilding(true, 0, 16, "R"));
+		assertEquals(
+				"Computerpool in einem Gebäude ohne Beamer Abfrage bei nicht vorhandenen Beamer und oberen Grenzwert ist nicht korrekt",
+				S2, rm2.getMatchingRoomInABuilding(false, 0, 16, "R"));
+		// gemischte Abfragen Beamer und oberhalb des Grenzwertes
+		assertEquals(
+				"Computerpool in einem Gebäude mit Beamer Abfrage bei vorhandenen Beamer und oberhalb des Grenzwertes ist nicht korrekt",
+				S3, rm1.getMatchingRoomInABuilding(true, 0, 17, "R"));
+		assertEquals(
+				"Computerpool in einem Gebäude ohne Beamer Abfrage bei vorhandenen Beamer und oberhalb des Grenzwertes ist nicht korrekt",
+				S3, rm1.getMatchingRoomInABuilding(false, 0, 17, "R"));
+		assertEquals(
+				"Computerpool in einem Gebäude mit Beamer Abfrage bei nicht vorhandenen Beamer und oberhalb des Grenzwertes ist nicht korrekt",
+				S3, rm2.getMatchingRoomInABuilding(true, 0, 17, "R"));
+		assertEquals(
+				"Computerpool in einem Gebäude ohne Beamer Abfrage bei nicht vorhandenen Beamer und oberhalb des Grenzwertes ist nicht korrekt",
+				S3, rm2.getMatchingRoomInABuilding(false, 0, 17, "R"));
+		// Abfragen der Vorhandenen PC Plätze
+		assertEquals(
+				"Computerpool in einem Gebäude oberer Grenzwert Abfrage ist nicht korrekt",
+				S1, rm1.getMatchingRoomInABuilding(true, 16, 15, "R"));
+		assertEquals(
+				"Computerpool in einem Gebäude oberhalb des Grenzwertes Abfrage ist nicht korrekt",
+				S3, rm1.getMatchingRoomInABuilding(true, 17, 15, "R"));
+		// Abfragen ob der Raum im Gebäude ist
+		assertEquals(
+				"Computerpool in einem Gebäude oberer Grenzwert Abfrage ist nicht korrekt",
+				S3, rm1.getMatchingRoomInABuilding(true, 16, 15, "T"));
+		assertEquals(
+				"Computerpool in einem Gebäude oberhalb des Grenzwertes Abfrage ist nicht korrekt",
+				S3, rm1.getMatchingRoomInABuilding(true, 17, 15, "T"));
+		assertEquals(
+				"Computerpool in einem Gebäude oberer Grenzwert Abfrage ist nicht korrekt",
+				S3, rm1.getMatchingRoomInABuilding(true, 16, 16, "T"));
+		assertEquals(
+				"Computerpool in einem Gebäude oberhalb des Grenzwertes Abfrage ist nicht korrekt",
+				S3, rm1.getMatchingRoomInABuilding(true, 17, 15, "R"));
+		assertEquals(
+				"Computerpool in einem Gebäude oberhalb des Grenzwertes Abfrage ist nicht korrekt",
+				S3, rm1.getMatchingRoomInABuilding(true, 15, 17, "R"));
+	}
 
 }
