@@ -31,6 +31,7 @@ public class TestBadRoomManager {
 	 * Test get Matching Room in a building
 	 * !!!Fehler 7 wenn kein Beamer Vorhanden aber einer gefragt wird Fehler=>erwarte keinen Listeneintrag
 	 * !!!Fehler 8 Wenn oberer Grenzwert des Computerpools erreicht wird Fehler!!=>erwarte Listeneintrag
+	 * !!! Fehler 11 Das Gebäude Wird bei der Abfrage nicht berücksichtigt!!
 	 * 
 	 * 
 	 * Test DeleteRoom
@@ -363,6 +364,10 @@ public class TestBadRoomManager {
 		assertEquals(
 				"Computerpool in einem Gebäude oberhalb des Grenzwertes Abfrage ist nicht korrekt",
 				S3, rm1.getMatchingRoomInABuilding(true, 15, 17, "R"));
+		assertEquals(
+				"Das Gebäude wird nicht berücksichtigt",
+				S3, rm1.getMatchingRoomInABuilding(true, 0, 15, "T"));//!!! Fehler 11 Das Gebäude Wird bei der Abfrage nicht berücksichtigt!!
+		
 	}
 
 }
