@@ -333,6 +333,9 @@ public class TestGoodRoomManager {
 		assertEquals(
 				"Computerpool in einem Gebäude oberhalb des Grenzwertes Abfrage ist nicht korrekt",
 				S3, rm1.getMatchingRoomInABuilding(true, 15, 17, "R"));
+		assertEquals(
+				"Das Gebäude wird nicht berücksichtigt",
+				S3, rm1.getMatchingRoomInABuilding(true, 0, 15, "T"));
 	}
 
 }
