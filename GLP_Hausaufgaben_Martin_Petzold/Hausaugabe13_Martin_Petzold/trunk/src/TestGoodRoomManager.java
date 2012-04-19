@@ -6,11 +6,18 @@ import org.junit.After;
 import org.junit.Before;
 import org.junit.Test;
 
+/**
+ * @author Martin Petzold
+ *
+ */
 public class TestGoodRoomManager {
 	GoodRoomManager rm1, rm2, rm3, rm4, rm5, rm6, rm7, rm8;
 	Room R1, R2, R3, R4, R5, R6, R7, R8;
 	ArrayList<Room> S1, S2, S3, S4, S5, S6, S7, S8;
 
+	/**
+	 * @throws Exception
+	 */
 	@Before
 	public void setUp() throws Exception {
 		rm1 = new GoodRoomManager();
@@ -21,11 +28,11 @@ public class TestGoodRoomManager {
 		rm6 = new GoodRoomManager();
 		rm7 = null;
 		R1 = new Room("100", true, 16, true, "R", 16);
-		R2 = new Room("100", false, 16, true, "R", 16);
-		R3 = new Room("100", true, 1, true, "R", 16);
-		R4 = new Room("100", true, 16, false, "R", 16);
-		R5 = new Room("100", true, 16, true, "T", 16);
-		R6 = new Room("100", true, 16, true, "R", 1);
+		R2 = new Room("101", false, 16, true, "R", 16);
+		R3 = new Room("102", true, 1, true, "R", 16);
+		R4 = new Room("103", true, 16, false, "R", 16);//!!!
+		R5 = new Room("104", true, 16, true, "T", 16);
+		R6 = new Room("105", true, 16, true, "R", 1);
 		R7 = null;
 		S1 = new ArrayList<Room>();
 		S2 = new ArrayList<Room>();
@@ -42,10 +49,16 @@ public class TestGoodRoomManager {
 		rm6.registerRoom(R6);
 	}
 
+	/**
+	 * @throws Exception
+	 */
 	@After
 	public void tearDown() throws Exception {
 	}
 
+	/**
+	 * 
+	 */
 	@Test
 	public void testregisterRoom() {
 		assertFalse("Die RoomManager sind nicht voneinander Unabhängig",
@@ -65,6 +78,9 @@ public class TestGoodRoomManager {
 
 	}
 
+	/**
+	 * 
+	 */
 	@Test
 	public void testgetMatchingRooms() {
 
@@ -124,15 +140,33 @@ public class TestGoodRoomManager {
 
 	}
 
-//	 @Test
-//	 public void testdeleteRoom() {
-//	 rm1.registerRoom(R1);
-//	 // assertTrue(rm1.deleteRoom(R1));
-//	 rm1.deleteRoom(R1);
-//	 assertEquals("Ein vorhandener Raum konnte nicht gelöscht werden",S1,
-//	 rm1.getMatchingRooms(false, 12));
-//	
-//	 }
+	 @Test
+	 public void testdeleteRoom() {
+		 //  test für löschung eines Raumes
+	 assertEquals("Der Raum wurde nicht hinzugefügt",1, rm1.getMatchingRooms(true,15).size());
+	 assertTrue("Die Ausführung des Löschforgangs ist falsch",rm1.deleteRoom(R1));	 
+	 assertEquals("Ein vorhandener Raum konnte nicht gelöscht werden",0, rm1.getMatchingRooms(true,15).size());
+	 assertEquals("Ein vorhandener Raum konnte nicht gelöscht werden",S1,
+	 rm1.getMatchingRooms(false, 12));
+	 
+	 // test für die Löschung eines nicht vorhandenen Raumes
+	 S4.add(R1);
+	 rm1.registerRoom(R1);
+	 assertFalse("Die Ausführung des Löschforgangs ist falsch",rm1.deleteRoom(R2));
+	 assertEquals("Ein nicht vorhandener Raum wurde Falsch gelöscht werden",1, rm1.getMatchingRooms(true,15).size());
+	 assertEquals("Ein nicht vorhandener Raum Wurde falsch gelöscht werden",S4,
+	 rm1.getMatchingRooms(false, 12));
+	 // test für die Löschung bei mehreren Räumen
+	 rm2.registerRoom(R1);
+	 S5.add(R1);
+	 assertTrue("Die Ausführung des Löschforgangs ist falsch",rm2.deleteRoom(R2));	 
+	 assertEquals("Ein vorhandener Raum konnte nicht gelöscht werden",1, rm2.getMatchingRooms(true,0).size());
+	 assertEquals("Ein vorhandener Raum konnte nicht gelöscht werden",S5,
+	 rm1.getMatchingRooms(true, 0));
+	 }
+	/**
+	 * 
+	 */
 	@Test
 	public void testgetMatchingComputerPools() {
 		S1.add(R1);
@@ -197,9 +231,25 @@ public class TestGoodRoomManager {
 		assertEquals(
 				"Computerpool oberhalb des Grenzwertes Abfrage ist nicht korrekt",
 				S3, rm1.getMatchingComputerPools(true, 17, 15));
+		//Computerpool
+		assertEquals(
+				"Auch Räume die kein Computerpool sind werden als solcher gewertet",
+				S3, rm4.getMatchingComputerPools(true, 15, 15));
+		S4.add(R3);
+		assertEquals(
+				"Arbeitsplätze und Computer_Plätze sind nicht unabhängig",
+				S4, rm3.getMatchingComputerPools(true, 15, 0));
+		S6.add(R6);
+		assertEquals(
+				"Arbeitsplätze und Computer_Plätze sind nicht unabhängig",
+				S6, rm6.getMatchingComputerPools(true, 0, 15));
+		
 
 	}
 
+	/**
+	 * 
+	 */
 	@Test
 	public void testgetMatchingRoomInABuilding() {
 		S1.add(R1);
