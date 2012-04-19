@@ -31,7 +31,7 @@ public class TestBadRoomManager {
 	 * Test get Matching Room in a building
 	 * !!!Fehler 7 wenn kein Beamer Vorhanden aber einer gefragt wird Fehler=>erwarte keinen Listeneintrag
 	 * !!!Fehler 8 Wenn oberer Grenzwert des Computerpools erreicht wird Fehler!!=>erwarte Listeneintrag
-	 * !!! Fehler 11 Das Gebäude Wird bei der Abfrage nicht berücksichtigt!!
+	 * !!! Fehler 11 Das Gebäude Wird bei der Abfrage nicht berücksichtigt!!=>erwarte keinen Listeneintrag
 	 * 
 	 * 
 	 * Test DeleteRoom
