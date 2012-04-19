@@ -18,19 +18,19 @@ public class TestBadRoomManager {
 	 *!!! Fehlerbeschreibung wird bei Testmethoden wiederholt!!
 	 * 
 	 * Test get Matching Rooms
-	 * !!!Fehler Nummer 1 Wenn ein Beamer vorhanden ist aber keiner gewünscht wird wird der Raum nicht Angezeigt!!
-	 * !!!Fehler Nummer 2 Wenn ein Raum ohne Beamer Erfragt wird und der Raum keinen hat Fehler!!
-	 * !!!Fehler Nummer 3 Wenn der Grenzwert eines Raumes erreicht ist Fehler!!
+	 * !!!Fehler Nummer 1 Wenn ein Beamer vorhanden ist aber keiner gewünscht wird wird der Raum nicht Angezeigt!!=>erwarte Listeneintrag
+	 * !!!Fehler Nummer 2 Wenn ein Raum ohne Beamer Erfragt wird und der Raum keinen hat Fehler!!=>erwarte Listeneintrag
+	 * !!!Fehler Nummer 3 Wenn der Grenzwert eines Raumes erreicht ist Fehler!!=>erwarte Listeneintrag
 	 * 
 	 * Test Get Matching ComputerPools
-	 * !!!Fehler 4 Wenn Beamer in Anfrage und Raum enthalten falsche Ausgabe!!!
-	 * !!!Fehler 5 Wenn Beamer nicht nachgefragt und nicht vorhanden Fehler!!!
-	 * !!!Fehler 6 Abfrage des Grenzwertes oberhalb der Computerpoolplätze ist falsch!!!
-	 * !!!Fehler 9 Arbeitsplätze und Computer_Plätze sind nicht unabhängig
+	 * !!!Fehler 4 Wenn Beamer in Anfrage und Raum enthalten falsche Ausgabe!!!=>erwarte Listeneintrag
+	 * !!!Fehler 5 Wenn Beamer nicht nachgefragt und nicht vorhanden Fehler!!!=>erwarte Listeneintrag
+	 * !!!Fehler 6 Abfrage des Grenzwertes oberhalb der Computerpoolplätze ist falsch!!!=>erwarte keinen Listeneintrag
+	 * !!!Fehler 9 Arbeitsplätze und Computer_Plätze sind nicht unabhängig=>erwarte Listeneintrag
 	 *
 	 * Test get Matching Room in a building
-	 * !!!Fehler 7 wenn kein Beamer Vorhanden aber einer gefragt wird Fehler
-	 * !!!Fehler 8 Wenn oberer Grenzwert des Computerpools erreicht wird Fehler!!
+	 * !!!Fehler 7 wenn kein Beamer Vorhanden aber einer gefragt wird Fehler=>erwarte keinen Listeneintrag
+	 * !!!Fehler 8 Wenn oberer Grenzwert des Computerpools erreicht wird Fehler!!=>erwarte Listeneintrag
 	 * 
 	 * 
 	 * Test DeleteRoom
