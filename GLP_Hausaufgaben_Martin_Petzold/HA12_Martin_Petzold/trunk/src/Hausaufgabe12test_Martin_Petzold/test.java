@@ -1,10 +1,10 @@
-package Hausaufgabe12test;
+package Hausaufgabe12test_Martin_Petzold;
 
 import static org.junit.Assert.*;
 
 import org.junit.Before;
 import org.junit.Test;
-import Hausaufgabe12.Box;
+import Hausaufgabe12_Martin_Petzold.Box;
 import org.junit.After;
 
 public class test {

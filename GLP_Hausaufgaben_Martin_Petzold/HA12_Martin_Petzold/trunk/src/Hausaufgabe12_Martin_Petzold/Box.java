@@ -1,4 +1,4 @@
-package Hausaufgabe12;
+package Hausaufgabe12_Martin_Petzold;
 
 //Die Klasse die einen Karton erzeugt
 public class Box {
