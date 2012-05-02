@@ -9,9 +9,6 @@ public class PolygoneShapeException extends Exception{
 	{
 		
 	}
-	public PolygoneShapeException(String error)
-	{
-		System.err.print(error);
-	}
+
 
 }
