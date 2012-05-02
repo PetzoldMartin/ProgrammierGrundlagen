@@ -73,7 +73,7 @@ public class Polygon extends Shape
     {
     	if(p.size()<=2)
     	{
-    		throw new PolygoneShapeException("Ein Polygon muss mindestens aus drei Punkten bestehen");
+    		throw new PolygoneShapeException();
     	}
         points=p;
     }
