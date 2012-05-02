@@ -13,12 +13,12 @@ public class ChatClient extends Thread implements Runnable {
 	 * Die Auszugebende Nachricht
 	 */
 
-	public String message;
+	private String message;
 	/**
 	 * Der ChatServer den der Chat Client benutzt
 	 */
 	
-	public ChatServer CS;
+	private ChatServer CS;
 
 	/**
 	 * Der Konstruktor des Chat Clients 
@@ -49,7 +49,7 @@ public class ChatClient extends Thread implements Runnable {
 				sleep(i2);
 
 			} catch (InterruptedException e) {
-				// Wirft die Exception weiter
+				
 				e.printStackTrace();
 			}
 

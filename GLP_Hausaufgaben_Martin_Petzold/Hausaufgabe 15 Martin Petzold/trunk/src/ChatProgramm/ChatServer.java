@@ -23,21 +23,26 @@ public class ChatServer extends Thread {
 	 * @param message die Auszugebende Nachricht
 	 * @throws InterruptedException
 	 */
-	public void printMessage(String message) throws InterruptedException {
+	public void printMessage(String message)  {
 		/**
-		 * Veränderungen der Counter wird direkt nach Ausgabe der Nachricht Hochgezählt 
-		 * bevor dieser Thread "Schläft"
-		 * zudem ist der Bereich Geschützt das wenn eine Nachricht ausgegeben wird und
+		 * Veränderungen der Counter ist  Geschützt das wenn eine Nachricht ausgegeben wird und
 		 * der Nachruichtenzähler erhöht wird kein anderer ChatClient zur gleichen Zeit
-		 * eine Nachricht ausgeben kann oder auf den Counter zugreifen kann
+		 * auf den Counter zugreifen kann
 		 */
+		System.out.println(message + " Counter" + counter);
+		long i = (long) Math.random() * 5;
+		try {
+			sleep(i);
+		} catch (InterruptedException e) {
+			e.printStackTrace();
+		}
 		synchronized (this) {
-			System.out.println(message + " Counter" + counter);
+			
 			counter++;
 
 		}
-		long i = (long) Math.random() * 5;
-		sleep(i);
+		
+		
 
 	}
 
