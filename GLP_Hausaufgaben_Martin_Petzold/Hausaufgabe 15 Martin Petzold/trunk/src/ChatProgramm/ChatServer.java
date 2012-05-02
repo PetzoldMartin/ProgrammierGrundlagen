@@ -10,7 +10,7 @@ public class ChatServer extends Thread {
 	/**
 	 * Der Wert der die Nachrichtenanzahl zählt
 	 */
-	public int counter;
+	private int counter;
 
 	/**
 	 * Konstruktor der den Counter Initialisiert
