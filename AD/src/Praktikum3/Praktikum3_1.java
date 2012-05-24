@@ -35,7 +35,9 @@ public class Praktikum3_1 extends Zeileneinleser {
 
 				}else{
 				if (k == '-') {
-					numbers.add( numbers.pop()- numbers.pop());
+					double a =  numbers.pop();
+					double b =  numbers.pop();
+					numbers.add( b-a);
 
 				}else{
 				if ('0' <= k && '9' >= k) {
