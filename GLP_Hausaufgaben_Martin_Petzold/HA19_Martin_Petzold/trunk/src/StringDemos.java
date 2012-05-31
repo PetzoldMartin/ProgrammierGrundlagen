@@ -1,5 +1,10 @@
 public class StringDemos {
 
+	/**
+	 * 
+	 * @param Eingabe der Eingabestring
+	 * @return die anzahl der hi's
+	 */
 	int countHi(String Eingabe) {
 		char[] f = new char[Eingabe.length()];
 		f = Eingabe.toCharArray();
@@ -14,7 +19,11 @@ public class StringDemos {
 		return count;
 
 	}
-
+/**
+ * 
+ * @param Eingabe der Eingabestring
+ * @return die Anzahl der z und y am Wortende
+ */
 	int countYZ(String Eingabe) {
 		char[] f = new char[Eingabe.length()];
 		f = Eingabe.toCharArray();
